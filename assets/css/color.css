@@ -1,0 +1,9 @@
+/* Overrides desactivados para conservar apariencia original del template */
+
+/* Fix puntual: asegurar que el logo del header siempre sea visible */
+.header-main .logo .header-logo img,
+.header-main .logo .logo-2 img {
+	display: block;
+	max-width: 254px;
+	height: auto;
+}
