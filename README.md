@@ -10,6 +10,37 @@ En PowerShell, desde la carpeta del proyecto:
 Set-Location "c:\Users\Jhon Fragozo\Documents\FREELANCE 2026\04 Jhon Fragozo\Portafolio Freelance\buyer-file\minifolio"
 ```
 
+## Inicio rápido (local)
+
+Desde PowerShell, en la raíz del proyecto:
+
+```powershell
+./inicio-rapido.ps1
+```
+
+Opcional (otro puerto):
+
+```powershell
+./inicio-rapido.ps1 -Puerto 8080
+```
+
+También puedes usar doble clic con:
+
+```bat
+inicio-rapido.bat
+```
+
+O indicar puerto desde terminal:
+
+```bat
+inicio-rapido.bat 8080
+```
+
+- El script abre el navegador automáticamente.
+- Usa Node (`npx http-server`) si está disponible.
+- Si no hay Node, intenta con PHP.
+- Si el puerto está ocupado, elige automáticamente el siguiente puerto libre.
+
 1) Edita tus archivos (`index.html`, `about.html`, etc.)
 
 2) Agrega cambios:
