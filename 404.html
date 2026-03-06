@@ -206,6 +206,9 @@
                         </div>
                     </div>
                     <div class="header-right d-flex justify-content-end align-items-center">
+                        <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Cambiar tema" title="Cambiar tema">
+                            <i class="fa-solid fa-sun"></i>
+                        </button>
                         <a href="index.html#cotizador" class="theme-btn">
                             Cotizar ahora <i class="fa-sharp fa-regular fa-arrow-right"></i>
                         </a>
@@ -364,6 +367,53 @@
     <script src="assets/js/typed.min.js"></script>
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
+    <script>
+        (function () {
+            const root = document.documentElement;
+            const toggle = document.getElementById('theme-toggle');
+            const storageKey = 'jf-theme';
+            const logoBlack = 'assets/img/logo/Logo-black.svg';
+            const logoWhite = 'assets/img/logo/logo-white.svg';
+
+            function setIcon(theme) {
+                if (!toggle) return;
+                toggle.innerHTML = theme === 'dark'
+                    ? '<i class="fa-solid fa-moon"></i>'
+                    : '<i class="fa-solid fa-sun"></i>';
+            }
+
+            function resolveInitialTheme() {
+                const saved = localStorage.getItem(storageKey);
+                if (saved === 'light' || saved === 'dark') return saved;
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                return prefersDark ? 'dark' : 'light';
+            }
+
+            function setLogo(theme) {
+                const logoSrc = theme === 'dark' ? logoWhite : logoBlack;
+                document.querySelectorAll('.header-logo img, .logo-2 img, .offcanvas__logo img').forEach(function (img) {
+                    img.setAttribute('src', logoSrc);
+                });
+            }
+
+            function applyTheme(theme) {
+                root.setAttribute('data-theme', theme);
+                localStorage.setItem(storageKey, theme);
+                setIcon(theme);
+                setLogo(theme);
+            }
+
+            const initialTheme = resolveInitialTheme();
+            applyTheme(initialTheme);
+
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+                    applyTheme(current === 'dark' ? 'light' : 'dark');
+                });
+            }
+        })();
+    </script>
         <!-- WhatsApp Float Button -->
         <a href="https://wa.me/573043195028?text=Hola%20Jhon%2C%20quiero%20cotizar%20un%20servicio"
              target="_blank"
