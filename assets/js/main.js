@@ -302,20 +302,45 @@
     const typedEl = document.querySelector(".type-text");
   
     if (typedEl) {
+      typedEl.style.opacity = "0.96";
+
+      const typedBaseStrings = [
+        "branding estrategico",
+        "identidad visual corporativa",
+        "comunicacion de marca",
+        "diseno publicitario",
+        "direccion creativa"
+      ];
+
+      // First phrase is always the opener, then rotate the rest in randomized order.
+      const shuffledTail = typedBaseStrings
+        .slice(1)
+        .sort(() => Math.random() - 0.5);
+      const typedStrings = [typedBaseStrings[0], ...shuffledTail];
+
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+      const typeSpeed = isMobile ? 118 : 108;
+      const backSpeed = isMobile ? 70 : 64;
+      const backDelay = isMobile ? 620 : 520;
+
       new Typed(typedEl, {
-        strings: [
-          "Diseñador Gráfico",
-          "Comunicador Digital",
-          "Branding & Identidad",
-          "Marketing de Contenidos"
-        ],
-        typeSpeed: 120,
-        backSpeed: 60,
-        startDelay: 0,
-        backDelay: 200,
+        strings: typedStrings,
+        typeSpeed,
+        backSpeed,
+        startDelay: 120,
+        backDelay,
+        shuffle: false,
         loop: true,
         showCursor: false,
         smartBackspace: true,
+        preStringTyped: () => {
+          typedEl.style.opacity = "0.66";
+          typedEl.style.filter = "blur(0.2px)";
+        },
+        onStringTyped: () => {
+          typedEl.style.opacity = "1";
+          typedEl.style.filter = "blur(0px)";
+        },
       });
     }
   });

@@ -26,6 +26,12 @@ npm run dev
 
 Abrir `http://localhost:3000`.
 
+Si el entorno de desarrollo falla por cache de Next (`.next`), usa:
+
+```bash
+npm run dev:reset
+```
+
 ## Build y export estático
 
 ```bash

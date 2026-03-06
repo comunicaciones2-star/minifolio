@@ -82,7 +82,7 @@ export const clearLeadHistory = () => {
   window.localStorage.removeItem(LEAD_HISTORY_KEY);
 };
 
-const escapeCsv = (value: string | number) => {
+const escapeCsv = (value: string | number | undefined) => {
   const stringValue = String(value ?? "");
   const escaped = stringValue.replace(/"/g, '""');
   return `"${escaped}"`;

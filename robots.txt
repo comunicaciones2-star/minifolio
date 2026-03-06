@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://comunicaciones2-star.github.io/minifolio/sitemap.xml

@@ -1,15 +1,27 @@
-import { Wizard } from "@/components/quote/Wizard";
+import { Suspense } from "react";
+import { QuoteWizard } from "@/components/quote/QuoteWizard";
+import { EmbedModeFlag } from "@/components/layout/EmbedModeFlag";
+import { Section } from "@/components/ui/Section";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 
 export default function CotizadorPage() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
-      <header className="mb-8 space-y-3">
-        <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl">Cotizador Inteligente</h1>
-        <p className="max-w-3xl text-sm text-slate-600 sm:text-base">
-          Completa el wizard para obtener un rango estimado en COP según empresa, sector, alcance, urgencia y extras.
-        </p>
-      </header>
-      <Wizard />
-    </main>
+    <>
+      <EmbedModeFlag />
+      <main id="cotizador-app">
+        <Section className="pb-20 pt-16 md:pt-20">
+          <SectionTitle
+            subtitle="Cotizador"
+            title="Cotiza tu proyecto de diseno y branding"
+            description="Completa estos pasos para obtener una estimacion aproximada en pesos colombianos segun el tipo de organizacion, sector, alcance y tiempos de entrega."
+          />
+          <div className="mt-10">
+            <Suspense fallback={<p className="text-body text-brand-neutral">Cargando cotizador...</p>}>
+              <QuoteWizard />
+            </Suspense>
+          </div>
+        </Section>
+      </main>
+    </>
   );
 }

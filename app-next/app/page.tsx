@@ -1,25 +1,51 @@
-import Link from "next/link";
+import { Badge } from "@/components/ui/Badge";
+import { Card } from "@/components/ui/Card";
+import { Section } from "@/components/ui/Section";
+import { SectionTitle } from "@/components/ui/SectionTitle";
+import { PrimaryLink, SecondaryLink } from "@/components/ui/Buttons";
 
 export default function HomePage() {
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center justify-center px-6 py-16 text-center">
-      <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700">
-        Minifolio 2026
-      </span>
-      <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-        Cotizador Inteligente para proyectos creativos
-      </h1>
-      <p className="mt-4 max-w-2xl text-base text-slate-600 sm:text-lg">
-        Estima rangos en COP con criterios profesionales, captura leads y comparte resultados por WhatsApp.
-      </p>
-      <div className="mt-8 flex flex-wrap justify-center gap-3">
-        <Link
-          href="/cotizador"
-          className="rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700"
-        >
-          Ir al cotizador
-        </Link>
-      </div>
+    <main>
+      <Section className="pb-16 pt-20 md:pt-24">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div className="space-y-6 lg:col-span-7">
+            <Badge>Brand Designer en Colombia</Badge>
+            <h1 className="text-h1 font-heading font-bold text-brand-primary">
+              Diseno estrategico de marca para empresas que quieren diferenciarse
+            </h1>
+            <p className="max-w-2xl text-body-lg text-brand-neutral">
+              Construyo identidades visuales solidas para organizaciones que necesitan comunicar mejor su valor y aumentar su posicionamiento.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <PrimaryLink href="/cotizador">Cotizar proyecto</PrimaryLink>
+              <SecondaryLink href="/portafolio">Ver portafolio</SecondaryLink>
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-5">
+            {[
+              "Estrategia de marca",
+              "Identidad visual",
+              "Diseno publicitario",
+              "Material corporativo",
+            ].map((item) => (
+              <Card key={item} hoverable className="p-5">
+                <h2 className="text-small font-semibold text-brand-primary">{item}</h2>
+                <p className="mt-2 text-small text-brand-neutral">Soluciones orientadas a resultados comerciales y posicionamiento.</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section className="bg-slate-50">
+        <SectionTitle
+          subtitle="Servicios"
+          title="Sistema de servicios orientado a negocio"
+          description="Cada bloque de servicio se define con alcance claro, valor tangible y entregables pensados para empresas en crecimiento."
+          align="center"
+        />
+      </Section>
     </main>
   );
 }

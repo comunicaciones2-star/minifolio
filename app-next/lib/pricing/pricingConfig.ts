@@ -35,33 +35,33 @@ export type ExtraItem = {
 export const companyLabels: Record<CompanyType, string> = {
   startup: "Startup",
   pyme: "Pyme",
-  enterprise: "Enterprise",
+  enterprise: "Corporativo",
 };
 
 export const serviceLabels: Record<ServiceType, string> = {
   branding: "Branding estratégico",
   identity: "Identidad visual",
-  campaign: "Campañas",
-  print: "Impresión",
+  campaign: "Diseño publicitario y campañas",
+  print: "Diseño corporativo e impresión",
 };
 
 export const sectorLabels: Record<SectorType, string> = {
-  tech: "Tecnología",
-  health: "Salud",
-  legal_finance: "Legal y finanzas",
-  retail: "Retail",
-  construction_industry: "Construcción e industria",
+  tech: "Tecnología / Software",
+  health: "Salud / Clínicas",
+  legal_finance: "Finanzas / Legal",
+  retail: "Retail / Comercio",
+  construction_industry: "Construcción / Ingeniería",
   education: "Educación",
-  hospitality: "Hospitalidad",
-  agro_energy: "Agro y energía",
-  government: "Gobierno",
+  hospitality: "Turismo / Gastronomía",
+  agro_energy: "Agroindustria / Energía",
+  government: "Gobierno / Institucional",
   other: "Otro",
 };
 
 export const urgencyLabels: Record<UrgencyType, string> = {
   normal: "Normal",
   priority: "Prioritario",
-  express: "Express",
+  express: "Urgente",
 };
 
 export const baseRanges: Record<ServiceType, Record<CompanyType, PriceRange>> = {

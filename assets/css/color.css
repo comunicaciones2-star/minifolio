@@ -1,4 +1,380 @@
-/* Overrides desactivados para conservar apariencia original del template */
+/*
+	Theming corporativo (sin tocar maquetacion ni animaciones del template)
+	- Modo claro: paleta solicitada
+	- Modo oscuro: inversion de la paleta base
+*/
+
+:root,
+html[data-theme="light"] {
+	/* Paleta solicitada - light */
+	--brand-50: #e9effd;
+	--brand-100: #d3e0fb;
+	--brand-200: #bed0f9;
+	--brand-300: #a8c1f7;
+	--brand-400: #92b1f5;
+	--brand-500: #7ca1f3;
+	--brand-600: #5182ef;
+	--brand-700: #3769d6;
+	--brand-800: #1e4fbc;
+	--brand-900: #133276;
+	--ink-900: #040a18;
+	--ink-800: #07142f;
+	--ink-700: #0b1e47;
+	--ink-600: #0f285e;
+	--ink-500: #163b8d;
+	--slate-500: #6e7a95;
+	--slate-400: #777d8b;
+	--color-dark: #07142f;
+	--color-muted: #425476;
+
+	/* Mapeo a variables del template */
+	--body: #f7f9ff;
+	--black: var(--ink-900);
+	--white: #ffffff;
+	--theme: var(--brand-700);
+	--header: var(--ink-800);
+	--text: #2f3e5e;
+	--bg: var(--brand-50);
+	--bg-2: #eef3ff;
+	--border: 1.5px solid rgba(30, 79, 188, 0.2);
+	--border-2: 1.5px solid var(--brand-700);
+	--border-3: 1.5px solid rgba(64, 108, 203, 0.16);
+}
+
+/* Modo oscuro automatico (si no se define manualmente data-theme) */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme]) {
+		--body: #07142f;
+		--black: #040a18;
+		--white: #ffffff;
+		--theme: #5182ef;
+		--header: #ffffff;
+		--text: #bed0f9;
+		--bg: #0b1e47;
+		--bg-2: #040a18;
+		--color-dark: #e9effd;
+		--color-muted: #bed0f9;
+		--border: 1.5px solid rgba(203, 213, 225, 0.2);
+		--border-2: 1.5px solid #7ca1f3;
+		--border-3: 1.5px solid rgba(203, 213, 225, 0.12);
+	}
+}
+
+/* Modo oscuro manual */
+html[data-theme="dark"] {
+	--body: #07142f;
+	--black: #040a18;
+	--white: #ffffff;
+	--theme: #5182ef;
+	--header: #ffffff;
+	--text: #bed0f9;
+	--bg: #0b1e47;
+	--bg-2: #040a18;
+	--color-dark: #e9effd;
+	--color-muted: #bed0f9;
+	--border: 1.5px solid rgba(203, 213, 225, 0.2);
+	--border-2: 1.5px solid #7ca1f3;
+	--border-3: 1.5px solid rgba(203, 213, 225, 0.12);
+}
+
+/* Ajustes visuales minimos para consistencia de contraste */
+body {
+	background-color: var(--body);
+	color: var(--text);
+}
+
+.theme-toggle-btn {
+	width: 44px;
+	height: 44px;
+	margin-right: 12px;
+	border-radius: 999px;
+	border: 1.5px solid rgba(51, 65, 85, 0.25);
+	background: rgba(255, 255, 255, 0.7);
+	color: var(--header);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 16px;
+	transition: all 0.25s ease;
+}
+
+.theme-toggle-btn:hover {
+	border-color: var(--theme);
+	color: var(--theme);
+	transform: translateY(-1px);
+}
+
+html[data-theme="dark"] .theme-toggle-btn {
+	background: rgba(15, 23, 42, 0.65);
+	border-color: rgba(203, 213, 225, 0.25);
+	color: #ffffff;
+}
+
+/* Contraste robusto en modo claro para secciones que heredan texto blanco del template */
+html[data-theme="light"] .experience-section,
+html[data-theme="light"] .experience-3,
+html[data-theme="light"] .helping-section,
+html[data-theme="light"] .faq-section,
+html[data-theme="light"] .contact-section,
+html[data-theme="light"] .footer-section,
+html[data-theme="light"] .footer-bottom {
+	background-color: #e9effd;
+}
+
+html[data-theme="light"] .experience-section .section-title span,
+html[data-theme="light"] .experience-section .section-title h2,
+html[data-theme="light"] .experience-wrapper .experience-items span,
+html[data-theme="light"] .experience-wrapper .experience-items h4,
+html[data-theme="light"] .experience-wrapper .experience-items h6,
+html[data-theme="light"] .experience-3 .section-title h2,
+html[data-theme="light"] .experience-3 .experience-main-wrapper .content-item .head h4,
+html[data-theme="light"] .experience-3 .experience-main-wrapper .content-item .head h6,
+html[data-theme="light"] .experience-3 .experience-main-wrapper .content-item .text,
+html[data-theme="light"] .experience-3 .experience-main-wrapper .content-item .text .list li i,
+html[data-theme="light"] .footer-widget-wrapper .single-footer-widget .widget-title,
+html[data-theme="light"] .footer-widget-wrapper .single-footer-widget p,
+html[data-theme="light"] .footer-bottom .footer-bottom-wrapper p,
+html[data-theme="light"] .footer-bottom .footer-bottom-wrapper .footer-list li a,
+html[data-theme="light"] .footer-widget-wrapper .single-footer-widget .list-items li a,
+html[data-theme="light"] .hero-1 .hero-content h1 span.style-2 {
+	color: #0b1e47 !important;
+	-webkit-text-stroke-color: #3769d6;
+}
+
+/* El acento del titular debe mantener el mismo tamano del heading, no crecer a 148px */
+.hero-1 .hero-content h1 span.style-2 {
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	white-space: normal;
+	display: inline;
+	color: var(--theme);
+	-webkit-text-stroke-width: 0;
+	-webkit-text-stroke-color: transparent;
+}
+
+.hero-title-typed .hero-intro,
+.hero-title-typed .hero-type-prefix,
+.hero-title-typed .type-text {
+	display: inline;
+}
+
+.hero-title-typed .hero-type-prefix {
+	font-weight: 600;
+	font-size: 0.72em;
+	color: var(--color-muted);
+	margin-right: 0.22em;
+	text-transform: lowercase;
+}
+
+.hero-title-typed .type-text {
+	font-weight: 800;
+	color: var(--theme);
+	white-space: nowrap;
+	transition: opacity 0.22s ease, filter 0.22s ease;
+}
+
+.hero-title-typed .type-caret {
+	display: inline-block;
+	width: 0.09em;
+	height: 0.9em;
+	margin-left: 0.08em;
+	border-radius: 2px;
+	background: var(--theme);
+	vertical-align: -0.06em;
+	animation: heroCaretBlink 0.9s steps(1, end) infinite;
+}
+
+@keyframes heroCaretBlink {
+	0%, 49% {
+		opacity: 1;
+	}
+	50%, 100% {
+		opacity: 0.15;
+	}
+}
+
+html[data-theme="light"] .experience-wrapper .experience-items,
+html[data-theme="light"] .experience-3 .experience-main-wrapper .content-item,
+html[data-theme="light"] .faq-wrapper .faq-content .faq-accordion .accordion-item {
+	border-color: rgba(30, 79, 188, 0.2);
+}
+
+html[data-theme="light"] .experience-wrapper .experience-items:hover,
+html[data-theme="light"] .experience-3 .experience-main-wrapper .content-item:hover {
+	background: #d3e0fb;
+}
+
+html[data-theme="light"] .marquee-section,
+html[data-theme="light"] .marquee-container {
+	background: linear-gradient(90deg, #e9effd 0%, #d3e0fb 100%);
+}
+
+html[data-theme="light"] .marquee-text h3 {
+	color: #133276;
+	font-size: clamp(1rem, 1.8vw, 1.35rem);
+	letter-spacing: 0.02em;
+}
+
+html[data-theme="light"] .faq-items .accordion-item .accordion-header .accordion-button,
+html[data-theme="light"] .faq-items.style-2 .accordion-item .accordion-header .accordion-button {
+	color: #0b1e47;
+}
+
+html[data-theme="light"] .faq-items .accordion-item .accordion-body,
+html[data-theme="light"] .faq-wrapper .faq-content .faq-accordion .accordion-item .accordion-body {
+	color: #425476;
+}
+
+html[data-theme="light"] .footer-widget-wrapper .footer-item .social-icon li,
+html[data-theme="light"] .footer-widget-wrapper .footer-item .social-icon li i {
+	color: #0b1e47;
+}
+
+html[data-theme="light"] .footer-widget-wrapper .footer-item .social-icon li i {
+	background-color: #bed0f9;
+}
+
+html[data-theme="light"] .footer-bottom {
+	border-top-color: rgba(30, 79, 188, 0.24);
+}
+
+/* Escala tipografica fluida para evitar desbordes y mejorar jerarquia */
+h1 {
+	font-size: clamp(2.6rem, 8.4vw, 7.2rem);
+	line-height: 1.03;
+	letter-spacing: 0.2px;
+	word-break: break-word;
+	overflow-wrap: anywhere;
+}
+
+h2 {
+	font-size: clamp(2rem, 4.4vw, 3.6rem);
+	line-height: 1.1;
+}
+
+h3 {
+	font-size: clamp(1.55rem, 3vw, 2.1rem);
+}
+
+.section-title h2 {
+	line-height: 1.12;
+	text-wrap: balance;
+}
+
+.experience-wrapper .experience-items h4 {
+	font-size: clamp(1.3rem, 2.3vw, 2rem);
+}
+
+.experience-wrapper .experience-items h6 {
+	font-size: clamp(1.06rem, 1.5vw, 1.35rem);
+}
+
+.hero-1 .hero-content h1 {
+	font-size: clamp(2rem, 6.2vw, 4.8rem) !important;
+	line-height: 1.08;
+	max-width: 20ch;
+	margin-left: auto;
+	margin-right: auto;
+	text-wrap: balance;
+}
+
+.hero-1 .hero-content h1.hero-title-balance {
+	max-width: 22ch;
+}
+
+.hero-break {
+	display: none;
+}
+
+.hero-break-desktop {
+	display: inline;
+}
+
+@media (max-width: 1200px) {
+	.hero-1 .hero-content h1 {
+		font-size: clamp(1.95rem, 7.8vw, 3.9rem) !important;
+		max-width: 18ch;
+	}
+}
+
+.hero-1 .hero-content .hero-bottom p,
+.section-title p,
+.accordion-body,
+.footer-widget-wrapper .single-footer-widget p {
+	font-size: clamp(1rem, 1.55vw, 1.15rem);
+	line-height: 1.65;
+}
+
+.hero-1 .hero-content .hero-bottom {
+	margin-left: 0;
+}
+
+.hero-1 .hero-content .hero-bottom p {
+	max-width: 780px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hero-1 .hero-content .hero-bottom .hero-btn-wrapper {
+	justify-content: center;
+}
+
+@media (max-width: 991px) {
+	.hero-1 .hero-content h1 {
+		max-width: 14ch;
+		font-size: clamp(1.85rem, 9.2vw, 3rem) !important;
+	}
+
+	.hero-break-desktop {
+		display: none;
+	}
+
+	.hero-break-mobile {
+		display: inline;
+	}
+
+	.hero-title-typed .hero-type-prefix,
+	.hero-title-typed .type-text {
+		display: block;
+		margin-right: 0;
+	}
+
+	.hero-title-typed .hero-type-prefix {
+		font-size: 0.66em;
+		margin-top: 0.22em;
+	}
+
+	.hero-title-typed .type-text {
+		white-space: normal;
+	}
+
+	.hero-title-typed .type-caret {
+		height: 0.82em;
+		vertical-align: -0.03em;
+	}
+}
+
+@media (max-width: 575px) {
+	.hero-1 .hero-content h1 {
+		max-width: 12ch;
+		font-size: clamp(1.65rem, 10vw, 2.45rem) !important;
+		line-height: 1.12;
+		letter-spacing: 0;
+	}
+
+	.hero-1 .hero-content .hero-bottom .hero-btn-wrapper {
+		gap: 12px;
+	}
+}
+
+/* El cursor decorativo no aporta en touch y puede generar ruido visual */
+@media (hover: none), (pointer: coarse) {
+	.mouse-cursor {
+		display: none !important;
+	}
+}
 
 /* Fix puntual: asegurar que el logo del header siempre sea visible */
 .header-main .logo .header-logo img,
@@ -6,4 +382,12 @@
 	display: block;
 	max-width: 254px;
 	height: auto;
+	/* Garantiza visibilidad del logo en header claro incluso si el SVG viene en blanco */
+	filter: brightness(0) saturate(100%);
+}
+
+/* Mantener visibilidad del logotipo al alternar a tema oscuro */
+html[data-theme="dark"] .header-main .logo .header-logo img,
+html[data-theme="dark"] .header-main .logo .logo-2 img {
+	filter: brightness(0) invert(1);
 }

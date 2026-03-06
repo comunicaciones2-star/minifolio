@@ -2,10 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #0f172a;
+  --secondary: #2563eb;
+  --neutral: #334155;
+  --base: #ffffff;
+}
+
 body {
-  @apply bg-slate-50 text-slate-900 antialiased;
+  font-family: var(--font-inter), sans-serif;
+  background-color: var(--base);
+  color: var(--primary);
+  @apply antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sora), sans-serif;
+  color: var(--primary);
 }
 
 a {
-  @apply text-blue-600;
+  color: var(--secondary);
+}
+
+p {
+  color: var(--neutral);
+  line-height: 1.7;
+}
+
+/* Spacing scale helpers */
+.space-section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+@media (min-width: 1024px) {
+  .space-section {
+    padding-top: 128px;
+    padding-bottom: 128px;
+  }
+}
+
+/* Keep full chrome in standalone mode, but remove duplicate nav/footer when embedded in legacy iframe. */
+html.is-embedded #app-shell > header,
+html.is-embedded #app-shell > footer {
+  display: none;
+}
+
+html.is-embedded #cotizador-app {
+  max-width: 100%;
+  padding-top: 0.35rem;
+  padding-bottom: 0.75rem;
+  padding-left: 0.35rem;
+  padding-right: 0.35rem;
+}
+
+html.is-embedded #cotizador-app > header {
+  margin-bottom: 0.85rem;
+}
+
+html.is-embedded #cotizador-app > header p {
+  display: none;
+}
+
+html.is-embedded #cotizador-app > header h1 {
+  font-size: 1.5rem;
+  line-height: 1.2;
 }
