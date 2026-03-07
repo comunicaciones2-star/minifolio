@@ -1,3 +1,57 @@
-node_modules
-.next
-out
+# dependencies
+node_modules/
+
+# next.js build
+.next/
+out/
+
+# production build
+build/
+dist/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# system files
+.DS_Store
+Thumbs.db
+
+# editor folders
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# temporary files
+tmp/
+temp/
+*.pid
+
+# coverage
+coverage/
+
+# next export
+export/
+
+# vercel
+.vercel/
+
+# testing
+playwright-report/
+test-results/
+
+# misc lockfiles
+*.lock
