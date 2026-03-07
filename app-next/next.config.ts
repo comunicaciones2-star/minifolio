@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "/minifolio";
-const normalizedAssetPrefix = basePath.endsWith("/") ? basePath : `${basePath}/`;
+const isProduction = process.env.NODE_ENV === "production";
+const productionBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "/minifolio";
+const basePath = isProduction ? productionBasePath : "";
+const normalizedAssetPrefix = basePath ? (basePath.endsWith("/") ? basePath : `${basePath}/`) : "";
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -10,8 +12,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath,
-  assetPrefix: normalizedAssetPrefix,
+  ...(basePath ? { basePath, assetPrefix: normalizedAssetPrefix } : {}),
 };
 
 export default nextConfig;

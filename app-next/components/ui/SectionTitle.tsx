@@ -28,7 +28,7 @@ export function SectionTitle({
         </span>
       ) : null}
       <h2 className="text-h2 font-heading font-bold tracking-tight text-brand-primary">{title}</h2>
-      {description ? <p className="max-w-3xl text-body text-brand-neutral/95">{description}</p> : null}
+      {description ? <p className={cn("max-w-3xl text-body text-brand-neutral/95", isCenter && "mx-auto")}>{description}</p> : null}
       {actions ? <div className={cn("flex flex-wrap gap-3", isCenter && "justify-center")}>{actions}</div> : null}
     </div>
   );
