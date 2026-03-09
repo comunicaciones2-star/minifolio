@@ -1,11 +1,19 @@
-import Link from "next/link";
-import { brand } from "@/lib/constants/brand";
-import { routes } from "@/lib/constants/routes";
+import Image from 'next/image';
 
-export function Logo() {
+interface LogoProps {
+  className?: string;
+  variant?: 'light' | 'dark';
+}
+
+export default function Logo({ className = '', variant = 'light' }: LogoProps) {
   return (
-    <Link href={routes.home} className="font-heading text-lg font-bold tracking-tight text-brand-primary">
-      {brand.name}
-    </Link>
+    <Image
+      src={variant === 'dark' ? '/logo/logo-white.svg' : '/logo/Logo-black.svg'}
+      alt="Logo"
+      width={140}
+      height={40}
+      className={className}
+      priority
+    />
   );
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { brand } from "@/lib/constants/brand";
+import Logo from "@/components/layout/Logo";
 import { footerNavigation } from "@/lib/constants/navigation";
 import { siteContent } from "@/lib/content/siteContent";
 
@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="mt-16 bg-brand-primary py-10 text-brand-white">
       <Container className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="font-heading text-xl font-bold text-brand-white">{brand.name}</p>
+          <Logo className="h-10 w-auto mb-2" variant="dark" />
           <p className="mt-1 text-small text-slate-200">{siteContent.footer.subtitle}</p>
         </div>
         <div className="flex flex-wrap items-center gap-4 text-small">
