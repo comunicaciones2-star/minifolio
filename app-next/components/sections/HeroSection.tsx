@@ -94,11 +94,11 @@ export function HeroSection() {
       />
 
       {/* ── Contenido ─────────────────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto max-w-[1200px] px-4 pb-24 pt-20 sm:px-6 md:pb-32 md:pt-28 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-10 xl:gap-14">
+      <div className="relative z-10 mx-auto max-w-[1200px] px-4 py-16 sm:py-24 sm:px-6 lg:py-32 lg:px-8">
+        <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-10 xl:gap-14">
 
           {/* ── Columna izquierda ─ Contenido ──────────────────────────── */}
-          <div className="space-y-7">
+          <div className="max-w-xl space-y-6 lg:max-w-none">
 
             {/* Badge monochrome premium */}
             <motion.div {...fadeIn(0)}>
@@ -110,7 +110,7 @@ export function HeroSection() {
 
             {/* Título — contraste máximo, jerarquía clara */}
             <motion.h1
-              className="text-[clamp(2rem,4.2vw,3.5rem)] font-heading font-bold leading-[1.06] tracking-[-0.025em] text-white"
+              className="text-3xl font-heading font-bold leading-tight tracking-[-0.025em] text-white sm:text-4xl lg:text-6xl"
               {...fadeIn(0.07)}
             >
               {heading}
@@ -118,24 +118,24 @@ export function HeroSection() {
 
             {/* Descripción */}
             <motion.p
-              className="max-w-[54ch] text-[1.0625rem] leading-[1.75] text-white/65"
+              className="text-base leading-relaxed text-white/70 sm:text-lg"
               {...fadeIn(0.14)}
             >
               {subheading}
             </motion.p>
 
             {/* CTAs */}
-            <motion.div className="flex flex-wrap items-center gap-3 pt-1" {...fadeIn(0.21)}>
-              <PrimaryLink href={hero.ctas.primary.href}>
+            <motion.div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap sm:items-center" {...fadeIn(0.21)}>
+              <PrimaryLink href={hero.ctas.primary.href} className="w-full sm:w-auto">
                 {hero.ctas.primary.label}
               </PrimaryLink>
-              <SecondaryLink href={hero.ctas.secondary.href}>
+              <SecondaryLink href={hero.ctas.secondary.href} className="w-full sm:w-auto">
                 {hero.ctas.secondary.label}
               </SecondaryLink>
             </motion.div>
 
-            {/* Social proof chips con icono */}
-            <motion.div className="flex flex-wrap items-center gap-2.5" {...fadeIn(0.28)}>
+            {/* Social proof chips con icono — ocultos en mobile para reducir ruido visual */}
+            <motion.div className="hidden flex-wrap items-center gap-2.5 sm:flex" {...fadeIn(0.28)}>
               {proofChips.map((label) => (
                 <span
                   key={label}
@@ -163,9 +163,8 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* ── Columna derecha ─ Visual flotante ──────────────────────── */}
-          {/* overflow-hidden evita que las cards con offset negativo sangren al layout */}
-          <div className="relative overflow-hidden pb-10 pt-8 lg:overflow-visible lg:pb-0 lg:pt-0">
+          {/* ── Columna derecha ─ Visual flotante (solo desktop) ────────── */}
+          <div className="hidden lg:relative lg:block lg:overflow-visible">
             {/* Glow difuso local detrás de las cards */}
             <div
               aria-hidden
