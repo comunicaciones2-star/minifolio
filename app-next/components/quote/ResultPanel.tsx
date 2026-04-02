@@ -41,7 +41,7 @@ export function ResultPanel({
         : "Tu presupuesto está alineado con este tipo de proyecto.";
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/70">
+    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
       <h3 className="text-lg font-semibold text-[var(--primary)]">Resultado de tu proyecto</h3>
       {showPrice ? (
         <>
@@ -51,7 +51,7 @@ export function ResultPanel({
           </p>
         </>
       ) : (
-        <p className="mt-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-3 text-sm text-[var(--neutral)] dark:border-slate-700 dark:bg-slate-800/70">
+        <p className="mt-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-3 text-sm text-[var(--neutral)] dark:border-slate-700 dark:bg-slate-900/70">
           Completa el paso 5 y haz clic en <strong className="text-[var(--primary)]">Ver estimación</strong> para conocer tu rango aproximado en COP.
         </p>
       )}
@@ -68,7 +68,7 @@ export function ResultPanel({
         </ul>
       </div>
 
-      <div className="mt-4 rounded-lg bg-slate-50 px-3 py-3 dark:bg-slate-800/70">
+      <div className="mt-4 rounded-lg bg-slate-50 px-3 py-3 dark:bg-slate-900/70">
         <h4 className="text-sm font-semibold text-[var(--primary)]">Tiempo estimado de desarrollo</h4>
         <p className="mt-1 text-sm text-[var(--neutral)]">
           Dependiendo del alcance final del proyecto, el tiempo de desarrollo podría estar entre: <strong className="text-[var(--primary)]">{timeline}</strong>

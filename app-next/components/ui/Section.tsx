@@ -12,7 +12,7 @@ type SectionProps = {
 
 export function Section({ children, className, containerClassName, narrow = false, id }: SectionProps) {
   return (
-    <section id={id} className={cn("py-24 md:py-32", className)}>
+    <section id={id} className={cn("py-24 md:py-32 dark:border-b dark:border-white/5 dark:bg-[#0B1220]", className)}>
       <Container className={containerClassName} narrow={narrow}>
         {children}
       </Container>

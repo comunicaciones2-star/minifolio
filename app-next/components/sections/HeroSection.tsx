@@ -29,14 +29,14 @@ export function HeroSection() {
   };
 
   return (
-    <Section className="relative overflow-hidden py-16 md:py-24">
+    <Section className="relative overflow-hidden py-16 dark:bg-[#020617] md:py-24">
       {/* Fondos decorativos: solo en md+ */}
       <div className="pointer-events-none absolute inset-0 hidden md:block">
-        <div className="absolute -left-28 top-2 h-80 w-80 rounded-full bg-brand-accent/12 blur-3xl" />
-        <div className="absolute right-0 top-12 h-72 w-72 rounded-full bg-brand-accent/12 blur-3xl" />
-        <div className="absolute bottom-0 right-16 h-64 w-64 rounded-full bg-[#D0F759]/20 blur-3xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_13%_18%,rgba(37,99,235,0.1),transparent_36%),radial-gradient(circle_at_84%_68%,rgba(208,247,89,0.1),transparent_34%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.08),rgba(255,255,255,0))]" />
+        <div className="absolute -left-28 top-2 h-80 w-80 rounded-full bg-brand-accent/12 blur-3xl dark:bg-brand-accent/10" />
+        <div className="absolute right-0 top-12 h-72 w-72 rounded-full bg-brand-accent/12 blur-3xl dark:bg-brand-accent/10" />
+        <div className="absolute bottom-0 right-16 h-64 w-64 rounded-full bg-[#D0F759]/20 blur-3xl dark:bg-[#D0F759]/6" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_13%_18%,rgba(37,99,235,0.1),transparent_36%),radial-gradient(circle_at_84%_68%,rgba(208,247,89,0.1),transparent_34%)] dark:opacity-35" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.08),rgba(255,255,255,0))] dark:opacity-0" />
       </div>
 
       <div className="relative grid gap-8 md:gap-10 lg:grid-cols-12 lg:items-center xl:gap-12">
@@ -48,7 +48,7 @@ export function HeroSection() {
           </motion.div>
 
           <motion.h1
-            className="max-w-[14.5ch] text-[clamp(2.1rem,4vw,3.6rem)] font-heading font-bold leading-[1.05] tracking-[-0.02em] text-brand-primary"
+            className="max-w-[14.5ch] text-[clamp(2.1rem,4vw,3.6rem)] font-heading font-bold leading-[1.05] tracking-[-0.02em] text-brand-primary dark:text-white/90"
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.08 }}
           >
@@ -56,7 +56,7 @@ export function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="max-w-[58ch] text-body-lg leading-relaxed text-brand-neutral"
+            className="max-w-[58ch] text-body-lg leading-relaxed text-brand-neutral dark:text-white/70"
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.14 }}
           >
@@ -81,10 +81,10 @@ export function HeroSection() {
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.26 }}
           >
-            <span className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-small font-medium text-brand-neutral shadow-soft dark:border-slate-700 dark:bg-slate-900/75">
+            <span className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-small font-medium text-brand-neutral shadow-soft dark:border-white/10 dark:bg-[#111827] dark:text-white/70">
               120+ proyectos desarrollados
             </span>
-            <span className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-small font-medium text-brand-neutral shadow-soft dark:border-slate-700 dark:bg-slate-900/75">
+            <span className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-small font-medium text-brand-neutral shadow-soft dark:border-white/10 dark:bg-[#111827] dark:text-white/70">
               14 sectores atendidos
             </span>
           </motion.div>
@@ -94,7 +94,7 @@ export function HeroSection() {
         <div className="relative min-h-[320px] md:min-h-[460px] lg:col-span-5 flex items-end md:block mt-6 md:mt-0">
           {/* Card principal SIEMPRE visible */}
           <motion.article
-            className="group mx-auto md:absolute md:left-2 md:right-10 md:top-10 z-20 w-full max-w-xs rounded-2xl border border-slate-200/90 bg-white/95 p-6 shadow-[0_18px_40px_-18px_rgba(15,23,42,0.18)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_75px_-28px_rgba(15,23,42,0.46)] md:max-w-none md:p-7 md:shadow-[0_28px_70px_-26px_rgba(15,23,42,0.38)] dark:border-slate-700/90 dark:bg-slate-900/85"
+            className="group mx-auto md:absolute md:left-2 md:right-10 md:top-10 z-20 w-full max-w-xs rounded-2xl border border-slate-200/90 bg-white/95 p-6 shadow-[0_18px_40px_-18px_rgba(15,23,42,0.18)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_75px_-28px_rgba(15,23,42,0.46)] md:max-w-none md:p-7 md:shadow-[0_28px_70px_-26px_rgba(15,23,42,0.38)] dark:border-white/10 dark:bg-[#111827]"
             initial={{ opacity: 0, y: 22, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "0px 0px -100px 0px" }}
@@ -124,7 +124,7 @@ export function HeroSection() {
           {/* Cards y decorativos secundarios: solo en md+ */}
           <div className="hidden md:block">
             <motion.article
-              className="absolute right-0 top-0 z-30 w-56 rounded-2xl border border-slate-200/90 bg-white/95 p-4 shadow-[0_20px_45px_-24px_rgba(15,23,42,0.4)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-24px_rgba(15,23,42,0.5)] dark:border-slate-700/90 dark:bg-slate-900/85"
+              className="absolute right-0 top-0 z-30 w-56 rounded-2xl border border-slate-200/90 bg-white/95 p-4 shadow-[0_20px_45px_-24px_rgba(15,23,42,0.4)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-24px_rgba(15,23,42,0.5)] dark:border-white/10 dark:bg-[#111827]"
               initial={{ opacity: 0, x: 12, y: 16 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true, margin: "0px 0px -100px 0px" }}
@@ -132,14 +132,14 @@ export function HeroSection() {
               animate={{ y: [0, -6, 0] }}
               style={{ willChange: "transform" }}
             >
-              <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-brand-neutral dark:border-slate-700 dark:bg-slate-800">
+              <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-brand-neutral dark:border-white/10 dark:bg-[#111827] dark:text-white/60">
                 Branding
               </span>
               <p className="mt-3 text-small text-brand-neutral">Sistema visual con lineamientos para implementacion multicanal.</p>
             </motion.article>
 
             <motion.article
-              className="absolute bottom-1 left-8 z-10 w-60 rounded-2xl border border-slate-200/90 bg-white/95 p-4 shadow-[0_18px_40px_-26px_rgba(15,23,42,0.38)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_50px_-28px_rgba(15,23,42,0.48)] dark:border-slate-700/90 dark:bg-slate-900/85"
+              className="absolute bottom-1 left-8 z-10 w-60 rounded-2xl border border-slate-200/90 bg-white/95 p-4 shadow-[0_18px_40px_-26px_rgba(15,23,42,0.38)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_50px_-28px_rgba(15,23,42,0.48)] dark:border-white/10 dark:bg-[#111827]"
               initial={{ opacity: 0, x: -10, y: 14 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true, margin: "0px 0px -100px 0px" }}
@@ -148,8 +148,8 @@ export function HeroSection() {
               style={{ willChange: "transform" }}
             >
               <div className="flex flex-wrap gap-2">
-                <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-brand-neutral dark:border-slate-700 dark:bg-slate-800">Web</span>
-                <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-brand-neutral dark:border-slate-700 dark:bg-slate-800">Digital Systems</span>
+                <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-brand-neutral dark:border-white/10 dark:bg-[#111827] dark:text-white/60">Web</span>
+                <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-brand-neutral dark:border-white/10 dark:bg-[#111827] dark:text-white/60">Digital Systems</span>
               </div>
               <p className="mt-3 text-small text-brand-neutral">Landing orientada a conversion con flujo de cotizacion integrado.</p>
             </motion.article>
@@ -167,7 +167,7 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div
-              className="pointer-events-none absolute left-0 top-6 z-30 rounded-full border border-slate-200 bg-white/95 px-3 py-1 text-xs font-semibold text-brand-neutral shadow-[0_10px_24px_-14px_rgba(15,23,42,0.35)] dark:border-slate-700 dark:bg-slate-900/85"
+              className="pointer-events-none absolute left-0 top-6 z-30 rounded-full border border-slate-200 bg-white/95 px-3 py-1 text-xs font-semibold text-brand-neutral shadow-[0_10px_24px_-14px_rgba(15,23,42,0.35)] dark:border-white/10 dark:bg-[#111827] dark:text-white/60"
               initial={{ opacity: 0, scale: 0.94, x: -6 }}
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
               viewport={{ once: true }}

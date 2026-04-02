@@ -7,7 +7,7 @@ export function FinalCTASection() {
   const whatsapp = homeContent.finalCta.actions.whatsapp;
 
   return (
-    <Section className="bg-slate-50 dark:bg-slate-950/60" id="cta-final">
+    <Section className="bg-slate-50 dark:bg-slate-900" id="cta-final">
       <Reveal className="mx-auto max-w-4xl text-center">
         <p className="text-small font-semibold uppercase tracking-wide text-brand-accent">CTA final</p>
         <h2 className="mt-4 text-h2 font-heading font-bold text-brand-primary">{homeContent.finalCta.title}</h2>

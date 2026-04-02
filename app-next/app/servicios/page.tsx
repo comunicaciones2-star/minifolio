@@ -19,7 +19,7 @@ export default function ServiciosPage() {
         </div>
       </Section>
 
-      <Section className="bg-slate-50 pt-0 dark:bg-slate-950/60">
+      <Section className="bg-slate-50 pt-0 dark:bg-slate-900">
         <SectionTitle
           title={servicesContent.sectionTitle}
           description={servicesContent.sectionDescription}

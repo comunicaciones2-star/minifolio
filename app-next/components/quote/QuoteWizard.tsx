@@ -105,7 +105,7 @@ export function QuoteWizard() {
     <FormProvider {...form}>
       <div className="grid gap-6 lg:grid-cols-[1.35fr_0.65fr]">
         <section className="space-y-5 pb-28 lg:pb-0">
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/70">
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
             <p className="text-sm text-[var(--neutral)]">
               Completa estos pasos para organizar lo que necesitas y recibir una estimación aproximada según el tipo de negocio,
               el tipo de proyecto y los tiempos de entrega.
@@ -120,7 +120,7 @@ export function QuoteWizard() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/70">
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
             <QuoteSteps currentStep={currentStep} />
             <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
               <div className="flex flex-wrap items-center gap-3">
@@ -159,7 +159,7 @@ export function QuoteWizard() {
           {feedback && <p className="text-sm text-[var(--neutral)]">{feedback}</p>}
         </section>
 
-        <aside className="hidden h-fit rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/70 lg:sticky lg:top-24 lg:block">
+        <aside className="hidden h-fit rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800 lg:sticky lg:top-24 lg:block">
           <h3 className="text-base font-semibold text-[var(--primary)]">Resumen de tu proyecto</h3>
           <dl className="mt-4 space-y-3 text-sm">
             <div>
@@ -212,7 +212,7 @@ export function QuoteWizard() {
         </button>
 
         {mobileSummaryOpen && (
-          <div id="mobile-project-summary" className="mt-3 rounded-xl border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-900">
+          <div id="mobile-project-summary" className="mt-3 rounded-xl border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800">
             <dl className="space-y-2 text-sm">
               <div className="flex items-start justify-between gap-3">
                 <dt className="text-slate-500">Tu negocio</dt>
