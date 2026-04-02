@@ -16,15 +16,15 @@ export const servicesContent: ServicesContent = {
   badge: "Servicios",
   title: "Sistema de servicios para crecimiento de marca",
   description:
-    "Cada servicio esta estructurado para aportar claridad estrategica, coherencia visual y mejor desempeno comercial.",
+    "Cada servicio está estructurado para aportar claridad estratégica, coherencia visual y mejor desempeño comercial.",
   sectionTitle: "Bloques de trabajo adaptados a tu negocio",
   sectionDescription:
-    "Selecciona la combinacion de servicios segun etapa de marca, necesidades de comunicacion y objetivos de ventas.",
+    "Selecciona la combinación de servicios según etapa de marca, necesidades de comunicación y objetivos de ventas.",
   items: [
     {
-      title: "Branding estrategico",
+      title: "Branding estratégico",
       description:
-        "Definimos la posicion de tu marca para que conecte con clientes correctos y respalde objetivos comerciales.",
+        "Definimos la posición de tu marca para que conecte con clientes correctos y respalde objetivos comerciales.",
     },
     {
       title: "Identidad visual",
@@ -32,12 +32,12 @@ export const servicesContent: ServicesContent = {
         "Construimos un sistema visual consistente y reconocible para todos tus puntos de contacto.",
     },
     {
-      title: "Diseno publicitario",
+      title: "Diseño publicitario",
       description:
-        "Creamos piezas orientadas a campanas con foco en claridad del mensaje y conversion.",
+        "Creamos piezas orientadas a campañas con foco en claridad del mensaje y conversión.",
     },
     {
-      title: "Diseno corporativo e impresion",
+      title: "Diseño corporativo e impresión",
       description:
         "Estandarizamos materiales corporativos para fortalecer presencia y confianza de marca.",
     },

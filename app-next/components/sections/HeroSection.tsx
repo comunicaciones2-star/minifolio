@@ -46,9 +46,9 @@ export function HeroSection() {
   const { hero } = homeContent;
 
   const heading =
-    "Diseno de marca y soluciones digitales para empresas que quieren crecer con una presencia mas solida, moderna y estrategica.";
+    "Diseño de marca y soluciones digitales para empresas que quieren crecer con una presencia más sólida, moderna y estratégica.";
   const subheading =
-    "Combino branding, diseno web y herramientas digitales para construir marcas claras, sistemas visuales consistentes y experiencias digitales orientadas a negocio.";
+    "Combino branding, diseño web y herramientas digitales para construir marcas claras, sistemas visuales consistentes y experiencias digitales orientadas a negocio.";
 
   const proofChips = ["120+ proyectos desarrollados", "14 sectores atendidos"];
 
@@ -255,7 +255,7 @@ export function HeroSection() {
                   ))}
                 </div>
                 <p className="mt-2 text-[11px] leading-relaxed text-white/45">
-                  Landing con flujo de cotizacion integrado.
+                  Landing con flujo de cotización integrado.
                 </p>
               </FloatWrap>
             </motion.div>

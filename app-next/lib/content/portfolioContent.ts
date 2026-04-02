@@ -14,28 +14,28 @@ export type PortfolioContent = {
 
 export const portfolioContent: PortfolioContent = {
   badge: "Portafolio",
-  title: "Casos de marca con enfoque estrategico",
+  title: "Casos de marca con enfoque estratégico",
   description:
-    "Proyectos desarrollados para mejorar posicionamiento, consistencia visual y percepcion de valor en el mercado.",
+    "Proyectos desarrollados para mejorar posicionamiento, consistencia visual y percepción de valor en el mercado.",
   sectionTitle: "Proyectos representativos",
   sectionDescription:
-    "Cada caso combina diagnostico estrategico, direccion visual y criterios de implementacion orientados a resultados.",
+    "Cada caso combina diagnóstico estratégico, dirección visual y criterios de implementación orientados a resultados.",
   projects: [
     {
-      name: "Rediseno de marca para firma legal",
-      summary: "Reestructuracion visual y verbal para transmitir solidez, claridad y especializacion.",
+      name: "Rediseño de marca para firma legal",
+      summary: "Reestructuración visual y verbal para transmitir solidez, claridad y especialización.",
     },
     {
-      name: "Campana digital para retail",
-      summary: "Sistema de piezas para pauta y conversion con enfoque en diferenciacion competitiva.",
+      name: "Campaña digital para retail",
+      summary: "Sistema de piezas para pauta y conversión con enfoque en diferenciación competitiva.",
     },
     {
       name: "Sistema visual para startup tech",
-      summary: "Arquitectura de marca escalable para producto digital, comunicacion y crecimiento.",
+      summary: "Arquitectura de marca escalable para producto digital, comunicación y crecimiento.",
     },
     {
       name: "Identidad y material corporativo para pyme",
-      summary: "Desarrollo integral de identidad con lineamientos de implementacion en entornos reales.",
+      summary: "Desarrollo integral de identidad con lineamientos de implementación en entornos reales.",
     },
   ],
 };

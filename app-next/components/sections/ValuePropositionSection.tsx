@@ -16,9 +16,9 @@ export function ValuePropositionSection() {
           <Card className="relative overflow-hidden border-brand-accent/20 bg-gradient-to-br from-blue-50 to-white dark:from-slate-900 dark:to-slate-800">
             <div className="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-brand-accent/10 blur-2xl dark:bg-brand-accent/20" />
             <p className="relative text-small font-semibold uppercase tracking-wide text-brand-accent">Enfoque</p>
-            <p className="relative mt-3 text-h3 font-heading font-semibold text-brand-primary">Estrategia + Diseno + Tecnologia</p>
+            <p className="relative mt-3 text-h3 font-heading font-semibold text-brand-primary">Estrategia + Diseño + Tecnología</p>
             <p className="relative mt-3 text-body text-brand-neutral">
-              Decisiones visuales y tecnicas conectadas con objetivos de negocio, no solo estetica.
+              Decisiones visuales y técnicas conectadas con objetivos de negocio, no solo estética.
             </p>
           </Card>
         </Reveal>
