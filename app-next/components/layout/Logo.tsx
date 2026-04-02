@@ -20,8 +20,7 @@ export default function Logo({ className = '', variant = 'light' }: LogoProps) {
         alt="Logo Jhon Fragozo"
         width={W}
         height={H}
-        style={{ width: 'auto' }}
-        className={className}
+        className={cn('w-auto', className)}
         priority
       />
     );
@@ -34,8 +33,7 @@ export default function Logo({ className = '', variant = 'light' }: LogoProps) {
         alt="Logo Jhon Fragozo"
         width={W}
         height={H}
-        style={{ width: 'auto' }}
-        className={cn(className, 'dark:hidden')}
+        className={cn('w-auto dark:hidden', className)}
         priority
       />
       <Image
@@ -43,8 +41,7 @@ export default function Logo({ className = '', variant = 'light' }: LogoProps) {
         alt="Logo Jhon Fragozo"
         width={W}
         height={H}
-        style={{ width: 'auto' }}
-        className={cn(className, 'hidden dark:block')}
+        className={cn('hidden w-auto dark:block', className)}
         priority
       />
     </>
