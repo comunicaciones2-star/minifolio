@@ -14,7 +14,14 @@ const config: Config = {
           primary: "#0F172A",
           accent: "#2563EB",
           neutral: "#334155",
+          muted: "#64748b",
           white: "#FFFFFF",
+        },
+        surface: {
+          base:     "#020617",
+          section:  "#0B1220",
+          card:     "#111827",
+          elevated: "#1f2937",
         },
       },
       borderRadius: {

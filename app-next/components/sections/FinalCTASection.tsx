@@ -7,7 +7,7 @@ export function FinalCTASection() {
   const whatsapp = homeContent.finalCta.actions.whatsapp;
 
   return (
-    <Section className="bg-slate-50 dark:bg-slate-900" id="cta-final">
+    <Section className="bg-slate-50 dark:bg-surface-section" id="cta-final">
       <Reveal className="mx-auto max-w-4xl text-center">
         <p className="text-small font-semibold uppercase tracking-wide text-brand-accent">CTA final</p>
         <h2 className="mt-4 text-h2 font-heading font-bold text-brand-primary">{homeContent.finalCta.title}</h2>
@@ -18,7 +18,7 @@ export function FinalCTASection() {
             href={whatsapp.href}
             target="_blank"
             rel="noreferrer"
-            className={`${buttonBaseClass} border border-slate-300 bg-brand-white text-brand-primary hover:border-brand-accent/30 hover:bg-blue-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800`}
+            className={`${buttonBaseClass} border border-slate-300 bg-brand-white text-brand-primary hover:border-brand-accent/30 hover:bg-blue-50 dark:border-white/[0.10] dark:bg-surface-card dark:text-white/90 dark:hover:bg-surface-elevated`}
           >
             {whatsapp.label}
           </a>

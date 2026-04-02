@@ -5,7 +5,7 @@ import { Reveal } from "@/components/sections/Reveal";
 
 export function ProblemSection() {
   return (
-    <Section className="bg-slate-50 dark:bg-slate-900" id="problema">
+    <Section className="bg-slate-50 dark:bg-surface-section" id="problema">
       <Reveal>
         <SectionTitle
           subtitle="Problema del mercado"

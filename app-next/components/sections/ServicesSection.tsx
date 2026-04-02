@@ -9,11 +9,11 @@ import { motion } from "framer-motion";
 
 export function ServicesSection() {
   return (
-    <Section className="relative overflow-hidden bg-slate-50 dark:bg-slate-900" id="servicios">
-      {/* Fondo decorativo sutil, consistente con HeroSection */}
+    <Section className="relative overflow-hidden bg-slate-50 dark:bg-surface-section" id="servicios">
+      {/* Fondo decorativo sutil — atenuado en dark para no invadir texto */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-24 top-10 h-64 w-64 rounded-full bg-brand-accent/10 blur-3xl" />
-        <div className="absolute right-0 top-32 h-56 w-56 rounded-full bg-[#D0F759]/10 blur-3xl" />
+        <div className="absolute -left-24 top-10 h-64 w-64 rounded-full bg-brand-accent/10 blur-3xl dark:opacity-25" />
+        <div className="absolute right-0 top-32 h-56 w-56 rounded-full bg-[#D0F759]/10 blur-3xl dark:opacity-20" />
       </div>
 
       <Reveal>
@@ -32,7 +32,7 @@ export function ServicesSection() {
         {homeContent.services.items.map((item, index) => (
           <Reveal key={item.title} delay={index * 0.07}>
             <motion.article
-              className="group relative flex h-full flex-col justify-between rounded-xl border border-slate-200/80 bg-white/95 p-8 shadow-soft transition duration-300 hover:-translate-y-1.5 hover:shadow-card focus-within:shadow-card dark:border-slate-700 dark:bg-slate-800"
+              className="group relative flex h-full flex-col justify-between rounded-xl border border-slate-200/80 bg-white/95 p-8 shadow-soft transition duration-300 hover:-translate-y-1.5 hover:shadow-card focus-within:shadow-card dark:border-white/[0.07] dark:bg-surface-card dark:hover:border-white/[0.14] dark:hover:bg-surface-elevated"
               initial={{ opacity: 0, y: 22, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "0px 0px -80px 0px" }}

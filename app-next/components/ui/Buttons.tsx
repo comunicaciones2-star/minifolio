@@ -14,12 +14,12 @@ type ActionLinkProps = ButtonBaseProps & {
 };
 
 export const buttonBaseClass =
-  "inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-900";
+  "inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-surface-base";
 
 export const primaryButtonClass = "bg-brand-accent text-brand-white shadow-soft hover:bg-[#1d4ed8]";
 
 export const secondaryButtonClass =
-  "border border-slate-300 bg-brand-white text-brand-primary hover:border-brand-accent/30 hover:bg-blue-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-brand-accent/40 dark:hover:bg-slate-800";
+  "border border-slate-300 bg-brand-white text-brand-primary hover:border-brand-accent/30 hover:bg-blue-50 dark:border-white/[0.10] dark:bg-surface-card dark:text-white/90 dark:hover:border-white/[0.18] dark:hover:bg-surface-elevated";
 
 export function PrimaryButton({ children, className, ...props }: ActionButtonProps) {
   return (

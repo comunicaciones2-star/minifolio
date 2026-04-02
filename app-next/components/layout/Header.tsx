@@ -9,7 +9,7 @@ import { routes } from "@/lib/constants/routes";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl dark:border-slate-700/80 dark:bg-slate-900/85">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl dark:border-white/[0.07] dark:bg-surface-base/95">
       <Container className="flex items-center gap-4 py-3 md:py-4">
         <Link href={routes.home} aria-label="Ir al inicio" className="shrink-0">
           <Logo className="h-10 w-auto" variant="light" />
