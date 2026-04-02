@@ -170,16 +170,17 @@ export function HeroSection() {
           </div>
 
           {/* ── Columna derecha ─ Visual flotante ──────────────────────── */}
-          <div className="relative">
+          {/* overflow-hidden evita que las cards con offset negativo sangren al layout */}
+          <div className="relative overflow-hidden pb-10 pt-8 lg:overflow-visible lg:pb-0 lg:pt-0">
             {/* Glow difuso local detrás de las cards */}
             <div
               aria-hidden
               className="pointer-events-none absolute -inset-6 -z-10 rounded-3xl bg-blue-600/[0.06] blur-2xl"
             />
 
-            {/* Card secundaria superior-derecha (md+) */}
+            {/* Card secundaria superior-derecha — solo lg+, puramente decorativa */}
             <motion.div
-              className="absolute -right-4 -top-8 z-30 hidden w-48 rounded-xl border border-white/[0.07] bg-[#0d1526] p-4 shadow-[0_20px_50px_-18px_rgba(2,6,23,0.85)] md:block"
+              className="pointer-events-none absolute -right-4 -top-6 z-[5] hidden w-48 rounded-xl border border-white/[0.07] bg-[#0d1526] p-4 opacity-80 shadow-[0_20px_50px_-18px_rgba(2,6,23,0.85)] lg:block"
               initial={{ opacity: 0, x: 12, y: 10 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true }}
@@ -241,9 +242,9 @@ export function HeroSection() {
               </FloatWrap>
             </motion.div>
 
-            {/* Card terciaria inferior-izquierda (md+) */}
+            {/* Card terciaria inferior — solo lg+, puramente decorativa, sin sangrar a la izquierda */}
             <motion.div
-              className="absolute -bottom-8 -left-4 z-10 hidden w-52 rounded-xl border border-white/[0.07] bg-[#0d1526] p-4 shadow-[0_20px_50px_-18px_rgba(2,6,23,0.85)] md:block"
+              className="pointer-events-none absolute -bottom-6 left-4 z-[5] hidden w-52 rounded-xl border border-white/[0.07] bg-[#0d1526] p-4 opacity-75 shadow-[0_20px_50px_-18px_rgba(2,6,23,0.85)] lg:block"
               initial={{ opacity: 0, x: -12, y: 10 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true }}
