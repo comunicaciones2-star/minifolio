@@ -21,6 +21,13 @@ export function Header() {
         </div>
 
         <div className="ml-auto flex items-center gap-2">
+          <Link
+            href={routes.dashboard}
+            className="hidden rounded-md px-2 py-1 text-[11px] font-medium uppercase tracking-wider text-slate-400/75 transition-colors hover:text-slate-600 dark:text-white/30 dark:hover:text-white/60 lg:inline-flex"
+            aria-label="Abrir dashboard"
+          >
+            Panel
+          </Link>
           <ThemeToggle />
           <PrimaryLink
             href={routes.quote}

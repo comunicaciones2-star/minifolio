@@ -1,16 +1,20 @@
 import { formatCOP } from "@/lib/utils/money";
+import { PriorityBadge, type LeadPriority } from "@/components/dashboard/PriorityBadge";
 import { StatusBadge, type LeadStatus } from "@/components/dashboard/StatusBadge";
 
 export type DashboardLead = {
   id: string;
   createdAt: string;
   name: string;
+  company: string;
   phone: string;
   service: string;
   priceMin: number;
   priceMax: number;
   score: number;
+  priority: LeadPriority;
   status: LeadStatus;
+  nextFollowUpAt: string;
   whatsappUrl: string;
 };
 
@@ -37,6 +41,7 @@ export function LeadsTable({ leads, onStatusChange }: LeadsTableProps) {
             <th className="px-4 py-3 font-medium">Servicio</th>
             <th className="px-4 py-3 font-medium">Precio</th>
             <th className="px-4 py-3 font-medium">Score</th>
+            <th className="px-4 py-3 font-medium">Prioridad</th>
             <th className="px-4 py-3 font-medium">Estado</th>
             <th className="px-4 py-3 font-medium">Acciones</th>
           </tr>
@@ -53,6 +58,9 @@ export function LeadsTable({ leads, onStatusChange }: LeadsTableProps) {
                 <span className="inline-flex rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
                   {lead.score}
                 </span>
+              </td>
+              <td className="px-4 py-3">
+                <PriorityBadge priority={lead.priority} />
               </td>
               <td className="px-4 py-3">
                 <div className="flex items-center gap-2">

@@ -5,6 +5,7 @@ export const routes = {
   portfolio: "/portafolio",
   quote: "/cotizador",
   contact: "/contacto",
+  dashboard: "/dashboard",
   heroComparison: "/hero-comparativa",
 } as const;
 
