@@ -1,23 +1,26 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
 
-type LeadPayload = {
-  profile: string;
-  service: string;
-  scope: string;
-  timeline: string;
-  sector: string;
-  budget: {
-    target: number;
-    range: { min: number; max: number };
-  };
-  lead: {
-    name: string;
-    phone: string;
-    email?: string;
-    company?: string;
-  };
-  createdAt: string;
-};
+const leadPayloadSchema = z.object({
+  profile: z.string().min(1),
+  service: z.string().min(1),
+  scope: z.string().min(1),
+  timeline: z.string().min(1),
+  sector: z.string().min(1),
+  budget: z.object({
+    target: z.number(),
+    range: z.object({ min: z.number(), max: z.number() }),
+  }),
+  lead: z.object({
+    name: z.string().min(1),
+    phone: z.string(),
+    email: z.string().email().optional(),
+    company: z.string().optional(),
+  }),
+  createdAt: z.string(),
+});
+
+type LeadPayload = z.infer<typeof leadPayloadSchema>;
 
 const sendToGoogleSheets = async (payload: LeadPayload) => {
   const webhook = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
@@ -71,7 +74,14 @@ const sendConfirmationEmail = async (payload: LeadPayload) => {
 };
 
 export async function POST(request: Request) {
-  const payload = (await request.json()) as LeadPayload;
+  const body: unknown = await request.json();
+  const parsed = leadPayloadSchema.safeParse(body);
+
+  if (!parsed.success) {
+    return NextResponse.json({ ok: false, error: "invalid_payload" }, { status: 400 });
+  }
+
+  const payload: LeadPayload = parsed.data;
 
   const [crm, email] = await Promise.allSettled([
     sendToGoogleSheets(payload),
