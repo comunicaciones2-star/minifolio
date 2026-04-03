@@ -38,6 +38,7 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /minifolio
+          NEXT_PUBLIC_DASHBOARD_PIN: ${{ secrets.DASHBOARD_PIN }}
 
       - name: Ensure .nojekyll for _next assets
         run: touch app-next/out/.nojekyll

@@ -14,7 +14,7 @@ import { formatCOP } from "@/lib/utils/money";
 const LEADS_KEY = "minifolio:leads:v1";
 const STATUS_KEY = "minifolio:lead-status:v1";
 const DASHBOARD_AUTH_KEY = "minifolio:dashboard:auth";
-const DASHBOARD_PIN = process.env.NEXT_PUBLIC_DASHBOARD_PIN ?? "0426";
+const DASHBOARD_PIN = process.env.NEXT_PUBLIC_DASHBOARD_PIN ?? "";
 
 type RawLead = {
   id?: string;
