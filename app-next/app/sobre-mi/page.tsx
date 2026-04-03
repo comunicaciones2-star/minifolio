@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/Badge";
+
+export const metadata: Metadata = {
+  title: "Sobre mí",
+  description: "Soy Jhon Fragozo, Brand Designer. Acompaño a empresas y emprendedores con identidad clara, coherente y lista para escalar.",
+  alternates: { canonical: "/sobre-mi" },
+  openGraph: { url: "/sobre-mi", title: "Sobre mí | Jhon Fragozo" },
+};
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { aboutContent } from "@/lib/content/aboutContent";

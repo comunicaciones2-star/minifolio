@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/Badge";
+
+export const metadata: Metadata = {
+  title: "Portafolio",
+  description: "Proyectos de branding e identidad visual desarrollados para empresas en Colombia y Latinoamérica.",
+  alternates: { canonical: "/portafolio" },
+  openGraph: { url: "/portafolio", title: "Portafolio | Jhon Fragozo" },
+};
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { SectionTitle } from "@/components/ui/SectionTitle";

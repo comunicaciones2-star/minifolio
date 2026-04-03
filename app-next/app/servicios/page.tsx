@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/Badge";
+
+export const metadata: Metadata = {
+  title: "Servicios",
+  description: "Branding estratégico, identidad visual, campañas y sistemas de diseño para empresas en Colombia.",
+  alternates: { canonical: "/servicios" },
+  openGraph: { url: "/servicios", title: "Servicios | Jhon Fragozo" },
+};
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { SectionTitle } from "@/components/ui/SectionTitle";

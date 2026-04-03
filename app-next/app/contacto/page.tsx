@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/Badge";
+
+export const metadata: Metadata = {
+  title: "Contacto",
+  description: "Escríbenos por WhatsApp o correo y cuéntanos tu proyecto de branding.",
+  alternates: { canonical: "/contacto" },
+  openGraph: { url: "/contacto", title: "Contacto | Jhon Fragozo" },
+};
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { SecondaryLink } from "@/components/ui/Buttons";
