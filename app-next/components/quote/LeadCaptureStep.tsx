@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Input } from "@/components/ui/FormControls";
 
 export type LeadFormData = {
@@ -13,9 +14,11 @@ type LeadCaptureStepProps = {
   lead: LeadFormData;
   errors: LeadFormErrors;
   onChange: (field: keyof LeadFormData, value: string) => void;
+  consented: boolean;
+  onConsentChange: (value: boolean) => void;
 };
 
-export function LeadCaptureStep({ lead, errors, onChange }: LeadCaptureStepProps) {
+export function LeadCaptureStep({ lead, errors, onChange, consented, onConsentChange }: LeadCaptureStepProps) {
   return (
     <section className="space-y-5">
       <h2 className="text-xl font-semibold text-[var(--primary)]">6. Antes de mostrar el rango, déjanos tus datos</h2>
@@ -77,6 +80,28 @@ export function LeadCaptureStep({ lead, errors, onChange }: LeadCaptureStepProps
           {errors.company ? <p className="text-xs text-red-600">{errors.company}</p> : null}
         </div>
       </div>
+
+      <label className="flex cursor-pointer items-start gap-3 pt-1">
+        <input
+          id="lead-consent"
+          type="checkbox"
+          checked={consented}
+          onChange={(event) => onConsentChange(event.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-slate-300 accent-[var(--secondary)]"
+        />
+        <span className="text-sm leading-relaxed text-[var(--neutral)]">
+          Autorizo el tratamiento de mis datos personales para recibir la cotización y ser
+          contactado sobre mi proyecto, conforme a la{" "}
+          <Link href="/politica-de-privacidad" className="underline underline-offset-2 hover:text-[var(--secondary)]">
+            Política de Privacidad
+          </Link>{" "}
+          y los{" "}
+          <Link href="/terminos" className="underline underline-offset-2 hover:text-[var(--secondary)]">
+            Términos de Servicio
+          </Link>
+          . *
+        </span>
+      </label>
     </section>
   );
 }

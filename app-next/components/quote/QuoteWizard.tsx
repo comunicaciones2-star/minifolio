@@ -45,6 +45,7 @@ export function QuoteWizard() {
     company: "",
   });
   const [leadErrors, setLeadErrors] = useState<LeadFormErrors>({});
+  const [consented, setConsented] = useState(false);
 
   const resolvedService =
     queryService === "branding" || queryService === "identity" || queryService === "campaign" || queryService === "print"
@@ -99,7 +100,10 @@ export function QuoteWizard() {
   };
 
   const leadIsValid =
-    lead.name.trim().length >= 2 && /^\+?\d{7,15}$/.test(lead.phone.replace(/\s+/g, "")) && (!lead.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email.trim()));
+    consented &&
+    lead.name.trim().length >= 2 &&
+    /^\+?\d{7,15}$/.test(lead.phone.replace(/\s+/g, "")) &&
+    (!lead.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email.trim()));
 
   const saveLeadLocally = (payload: unknown) => {
     if (typeof window === "undefined") {
@@ -248,7 +252,7 @@ export function QuoteWizard() {
             {currentStep < steps.length ? (
               <QuoteSteps currentStep={currentStep} />
             ) : (
-              <LeadCaptureStep lead={lead} errors={leadErrors} onChange={setLeadField} />
+              <LeadCaptureStep lead={lead} errors={leadErrors} onChange={setLeadField} consented={consented} onConsentChange={setConsented} />
             )}
             <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
               <div className="flex flex-wrap items-center gap-3">
