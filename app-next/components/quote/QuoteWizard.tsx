@@ -205,6 +205,10 @@ export function QuoteWizard() {
     }
   };
 
+  const printSummary = () => {
+    window.print();
+  };
+
   const downloadSummary = () => {
     const summary = [
       "Resumen del cotizador",
@@ -275,6 +279,7 @@ export function QuoteWizard() {
             isAdmin={isAdmin}
             onCopySummary={copySummary}
             onDownloadSummary={downloadSummary}
+            onPrint={printSummary}
             showPrice={showPrice}
           />
 

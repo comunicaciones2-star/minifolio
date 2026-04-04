@@ -15,6 +15,7 @@ type ResultPanelProps = {
   budgetValue: number;
   onCopySummary: () => void;
   onDownloadSummary: () => void;
+  onPrint: () => void;
   showPrice: boolean;
 };
 
@@ -27,6 +28,7 @@ export function ResultPanel({
   budgetValue,
   onCopySummary,
   onDownloadSummary,
+  onPrint,
   showPrice,
 }: ResultPanelProps) {
   const benefits = getCustomerBenefits(service);
@@ -86,6 +88,11 @@ export function ResultPanel({
         {showPrice && (
           <GhostButton type="button" onClick={onDownloadSummary} className="px-4 py-2">
             Descargar resumen
+          </GhostButton>
+        )}
+        {showPrice && (
+          <GhostButton type="button" onClick={onPrint} className="px-4 py-2">
+            Imprimir / PDF
           </GhostButton>
         )}
       </div>

@@ -107,6 +107,44 @@ html.is-embedded #cotizador-app > header h1 {
   line-height: 1.2;
 }
 
+/* ─── Print / PDF ─────────────────────────────────────────────────────────── */
+@media print {
+  header, footer, nav,
+  [data-no-print],
+  .fixed {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #0f172a !important;
+    font-size: 11pt;
+  }
+
+  [data-print-summary] {
+    display: block !important;
+    padding: 32px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  [data-print-summary] h2 {
+    font-size: 18pt;
+    margin-bottom: 8px;
+  }
+
+  [data-print-summary] p,
+  [data-print-summary] li {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #334155;
+  }
+
+  a[href]::after {
+    content: none;
+  }
+}
+
 /* ─── Dark mode ─ jerarquía de texto global ───────────────────────────────
    Los colores brand.primary/neutral/accent en Tailwind son valores estáticos.
    Estos overrides los elevan dinámicamente bajo .dark para cubrir TODOS los
