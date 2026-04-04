@@ -80,6 +80,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ? (
+          <script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+          />
+        ) : null}
       </head>
       <body className={`${inter.variable} ${sora.variable}`}>
         <div id="app-shell" className="min-h-screen bg-[var(--base)] text-[var(--primary)] transition-colors duration-300">
