@@ -9,12 +9,17 @@ interface LogoProps {
 const W = 254;
 const H = 32;
 
+// NEXT_PUBLIC_BASE_PATH se inyecta en .env.production → '/minifolio'.
+// En dev es '' (no se setea), lo que coincide con basePath: '' en next.config.ts.
+// Usar <img> directamente evita que next/image omita el basePath en el export estático.
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export default function Logo({ className = '', variant = 'light' }: LogoProps) {
   if (variant === 'dark') {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src="/logo/logo-white.svg"
+        src={`${BASE}/logo/logo-white.svg`}
         alt="Logo Jhon Fragozo"
         width={W}
         height={H}
@@ -27,7 +32,7 @@ export default function Logo({ className = '', variant = 'light' }: LogoProps) {
     <>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/logo/Logo-black.svg"
+        src={`${BASE}/logo/Logo-black.svg`}
         alt="Logo Jhon Fragozo"
         width={W}
         height={H}
@@ -35,7 +40,7 @@ export default function Logo({ className = '', variant = 'light' }: LogoProps) {
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/logo/logo-white.svg"
+        src={`${BASE}/logo/logo-white.svg`}
         alt="Logo Jhon Fragozo"
         width={W}
         height={H}

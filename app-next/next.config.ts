@@ -1,9 +1,18 @@
 import type { NextConfig } from "next";
 
+const isProduction = process.env.NODE_ENV === "production";
+const deploymentBasePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "/minifolio").replace(/\/$/, "");
+const basePath = isProduction ? deploymentBasePath : "";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  // Sin output:'export' — Vercel corre Next.js nativo (SSR + API routes + Image Optimization)
-  // Sin basePath — el dominio propio es la raíz
+  output: "export",
+  trailingSlash: true,
+  outputFileTracingRoot: process.cwd(),
+  images: {
+    unoptimized: true,
+  },
+  ...(basePath ? { basePath, assetPrefix: basePath } : {}),
 };
 
 export default nextConfig;
