@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { assetPath } from "@/lib/utils/assetPath";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
@@ -27,7 +28,7 @@ export default function SobreMiPage() {
             <div className="shrink-0 mx-auto md:mx-0">
               <div className="relative h-56 w-56 overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800 md:h-64 md:w-64">
                 <Image
-                  src="/images/profile/jhon-fragozo.jpg"
+                  src={assetPath("/images/profile/jhon-fragozo.jpg")}
                   alt="Jhon Fragozo — Brand Designer"
                   fill
                   priority

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "@/lib/utils/assetPath";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
@@ -41,7 +42,7 @@ export default function PortafolioPage() {
               <Card hoverable className="h-full overflow-hidden p-0 transition-shadow group-hover:shadow-card">
                 <div className="relative h-48 w-full bg-slate-100 dark:bg-slate-800">
                   <Image
-                    src={project.thumbnail}
+                    src={assetPath(project.thumbnail)}
                     alt={project.name}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"

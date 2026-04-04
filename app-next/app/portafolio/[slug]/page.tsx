@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "@/lib/utils/assetPath";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
@@ -69,7 +70,7 @@ export default async function CaseStudyPage({ params }: Props) {
           {/* ── Hero banner ────────────────────────────────────────────── */}
           <div className="relative h-64 w-full overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800 md:h-80 lg:h-96">
             <Image
-              src={project.heroBanner}
+              src={assetPath(project.heroBanner)}
               alt={project.name}
               fill
               priority
