@@ -217,6 +217,7 @@ export const portfolioContent: PortfolioContent = {
       ],
       thumbnail: "/images/portfolio/talu-thumb.jpg",
       heroBanner: "/images/portfolio/talu-hero.jpg",
+      solutionImage: "/images/portfolio/talu-solution.jpg",
     },
     {
       slug: "roza-agency",
