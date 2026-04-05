@@ -27,7 +27,6 @@ const cardIn = (delay = 0): any => ({
   },
 });
 
-// --- Estilo compartido de card -----------------------------------------------
 const cardCls =
   "rounded-2xl border border-white/[0.08] bg-[#0c1322]/95 " +
   "shadow-[0_20px_48px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.04)] " +
@@ -189,23 +188,23 @@ function TrustStrip() {
   );
 }
 
-// --- Panel visual — composición fiel al hero original ------------------------
+// --- Panel visual — grilla 2 columnas ----------------------------------------
 //
-//  Referencia visual:
-//  ┌──────────────────────────────────┐  ← CardMain (full-width del panel)
-//  │ PROYECTO DIGITAL                 │
-//  │ Arquitectura de marca…           │┌────────────┐
-//  │ Branding ████████████████ 82%    ││ SERVICIO   │ ← CardService (superpuesta
-//  │ Web      ████████████     64%    ││ Branding   │   arriba-derecha)
-//  │ Sistemas ██████████████   74%    │└────────────┘
-//  │ [Web] [Digital Systems]          │
-//  │ Landing con flujo de cotización  │
-//  └──────────────────────────────────┘
-//       ┌──────────────────┐
-//       │ ENTREGA          │  ← CardDelivered (debajo, ligeramente superpuesta)
-//       │ Sistema visual…  │
-//       │ Completado ──────│
-//       └──────────────────┘
+//  Col A (flex-3)         Col B (flex-2)
+//  ┌─────────────────┐    ┌──────────────┐
+//  │ PROYECTO DIGITAL│    │ SERVICIO     │
+//  │ Arquitectura…   │    │ Branding     │
+//  │ Branding   82%  │    │ Sistema…     │
+//  │ Web        64%  │    └──────────────┘
+//  │ Sistemas   74%  │
+//  │ [Web][Digital…] │
+//  │ Landing…        │
+//  └─────────────────┘
+//  ┌──────────────────────┐
+//  │ ENTREGA              │  ← debajo, ancho 60%
+//  │ Sistema visual empr… │
+//  │ Completado ──────────│
+//  └──────────────────────┘
 
 function HeroVisual() {
   const bars = [
@@ -220,95 +219,99 @@ function HeroVisual() {
       custom={0.45}
       initial="hidden"
       animate="show"
-      className="relative hidden lg:block"
-      style={{ paddingBottom: "88px" }}
+      className="relative hidden lg:flex flex-col gap-4"
     >
-      {/* Glow detrás */}
+      {/* Glow de fondo */}
       <div
-        className="pointer-events-none absolute inset-0
+        className="pointer-events-none absolute -inset-8
           flex items-center justify-center"
         aria-hidden="true"
       >
         <div className="h-[300px] w-[300px] rounded-full
-          bg-blue-600/10 blur-[80px]" />
+          bg-blue-600/10 blur-[90px]" />
       </div>
 
-      {/* CardMain — flujo normal, ocupa todo el ancho */}
-      <motion.div
-        variants={cardIn(0.5)}
-        initial="hidden"
-        animate="show"
-        className={`${cardCls} relative z-10 w-full p-5`}
-      >
-        <p className="mb-1 font-mono text-[10px] font-semibold
-          tracking-[0.08em] uppercase text-blue-400">
-          Proyecto digital
-        </p>
-        <p className="mb-4 font-display text-[15px] font-semibold
-          leading-snug text-white/90">
-          Arquitectura de marca y experiencia web
-        </p>
+      {/* Fila 1: CardMain + CardService en 2 columnas */}
+      <div className="flex gap-3 items-start">
 
-        {bars.map(({ label, pct, from, to }) => (
-          <div key={label} className="mb-3 last:mb-0">
-            <div className="mb-1 h-[3px] w-full overflow-hidden
-              rounded-full bg-white/[0.07]">
-              <div
-                className="h-full rounded-full"
-                style={{
-                  width: `${pct}%`,
-                  background: `linear-gradient(90deg, ${from}, ${to})`,
-                }}
-              />
-            </div>
-            <div className="flex justify-between">
-              <span className="font-sans text-[11px] text-white/40">{label}</span>
-              <span className="font-sans text-[11px] text-white/40">{pct}%</span>
-            </div>
-          </div>
-        ))}
+        {/* CardMain — 65% del ancho */}
+        <motion.div
+          variants={cardIn(0.5)}
+          initial="hidden"
+          animate="show"
+          className={`${cardCls} flex-[3] min-w-0 p-5`}
+        >
+          <p className="mb-1 font-mono text-[10px] font-semibold
+            tracking-[0.08em] uppercase text-blue-400">
+            Proyecto digital
+          </p>
+          <p className="mb-4 font-display text-[14px] font-semibold
+            leading-snug text-white/90">
+            Arquitectura de marca y experiencia web
+          </p>
 
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {["Web", "Digital Systems"].map((tag) => (
-            <span key={tag}
-              className="rounded-full border border-blue-900/60
-                bg-blue-950/50 px-2.5 py-0.5
-                font-sans text-[10px] font-medium text-blue-300/80">
-              {tag}
-            </span>
+          {bars.map(({ label, pct, from, to }) => (
+            <div key={label} className="mb-3 last:mb-0">
+              <div className="mb-1 h-[3px] w-full overflow-hidden
+                rounded-full bg-white/[0.07]">
+                <div
+                  className="h-full rounded-full"
+                  style={{
+                    width: `${pct}%`,
+                    background: `linear-gradient(90deg, ${from}, ${to})`,
+                  }}
+                />
+              </div>
+              <div className="flex justify-between">
+                <span className="font-sans text-[11px] text-white/40">{label}</span>
+                <span className="font-sans text-[11px] text-white/40">{pct}%</span>
+              </div>
+            </div>
           ))}
-        </div>
-        <p className="mt-2 font-sans text-[11px] leading-snug text-white/35">
-          Landing con flujo de cotización integrado.
-        </p>
-      </motion.div>
 
-      {/* CardService — superpuesta arriba-derecha, encima de CardMain */}
-      <motion.div
-        variants={cardIn(0.65)}
-        initial="hidden"
-        animate="show"
-        className={`${cardCls} absolute right-[-16px] top-[-16px] z-20 w-[185px] p-4`}
-      >
-        <p className="mb-0.5 font-mono text-[10px] font-semibold
-          tracking-[0.08em] uppercase text-blue-400">
-          Servicio
-        </p>
-        <p className="mb-1 font-display text-[14px] font-semibold
-          leading-snug text-white/90">
-          Branding
-        </p>
-        <p className="font-sans text-[12px] leading-relaxed text-white/40">
-          Sistema visual multicanal con lineamientos claros.
-        </p>
-      </motion.div>
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {["Web", "Digital Systems"].map((tag) => (
+              <span key={tag}
+                className="rounded-full border border-blue-900/60
+                  bg-blue-950/50 px-2.5 py-0.5
+                  font-sans text-[10px] font-medium text-blue-300/80">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <p className="mt-2 font-sans text-[11px] leading-snug text-white/35">
+            Landing con flujo de cotización integrado.
+          </p>
+        </motion.div>
 
-      {/* CardDelivered — superpuesta abajo, sobresale del contenedor */}
+        {/* CardService — 35% del ancho, alineada arriba */}
+        <motion.div
+          variants={cardIn(0.65)}
+          initial="hidden"
+          animate="show"
+          className={`${cardCls} flex-[2] min-w-0 p-4`}
+        >
+          <p className="mb-0.5 font-mono text-[10px] font-semibold
+            tracking-[0.08em] uppercase text-blue-400">
+            Servicio
+          </p>
+          <p className="mb-1.5 font-display text-[15px] font-semibold
+            leading-snug text-white/90">
+            Branding
+          </p>
+          <p className="font-sans text-[12px] leading-relaxed text-white/40">
+            Sistema visual multicanal con lineamientos claros.
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Fila 2: CardDelivered — debajo, ancho parcial */}
       <motion.div
         variants={cardIn(0.8)}
         initial="hidden"
         animate="show"
-        className={`${cardCls} absolute bottom-0 left-8 z-20 w-[220px] px-4 py-3.5`}
+        className={`${cardCls} self-start px-5 py-4`}
+        style={{ width: "60%" }}
       >
         <p className="mb-0.5 font-mono text-[10px] font-semibold
           tracking-[0.08em] uppercase text-blue-400">
@@ -316,7 +319,7 @@ function HeroVisual() {
         </p>
         <p className="mb-2.5 font-display text-[13px] font-semibold
           leading-snug text-white/90">
-          Sistema visual<br />empresa industrial
+          Sistema visual empresa industrial
         </p>
         <div className="h-[3px] w-full overflow-hidden
           rounded-full bg-white/[0.07]">
@@ -332,11 +335,7 @@ function HeroVisual() {
 }
 
 // --- Fondo -------------------------------------------------------------------
-function HeroBackground({
-  scrollY,
-}: {
-  scrollY: MotionValue<number>;
-}) {
+function HeroBackground({ scrollY }: { scrollY: MotionValue<number> }) {
   return (
     <>
       <motion.div
@@ -344,7 +343,6 @@ function HeroBackground({
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
       >
-        {/* Orbe azul principal */}
         <div
           className="absolute right-[-5%] top-[-10%] h-[700px] w-[65%] rounded-full"
           style={{
@@ -355,7 +353,6 @@ function HeroBackground({
               "transparent 75%)",
           }}
         />
-        {/* Orbe secundario izquierda */}
         <div
           className="absolute bottom-[-10%] left-[-5%] h-[420px] w-[45%] rounded-full"
           style={{
@@ -365,7 +362,6 @@ function HeroBackground({
               "transparent 70%)",
           }}
         />
-        {/* Streak horizontal sutil */}
         <div
           className="absolute left-0 right-0 top-[28%] h-[1px]"
           style={{
@@ -379,7 +375,6 @@ function HeroBackground({
         />
       </motion.div>
 
-      {/* Grid de líneas */}
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
@@ -397,7 +392,6 @@ function HeroBackground({
         }}
       />
 
-      {/* Fade inferior */}
       <div
         className="pointer-events-none absolute bottom-0
           left-0 right-0 h-28
@@ -436,7 +430,7 @@ export default function Hero() {
             <TrustStrip />
           </div>
 
-          {/* Derecha — visual */}
+          {/* Derecha — cards */}
           <HeroVisual />
         </div>
       </div>
