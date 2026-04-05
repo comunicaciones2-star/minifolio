@@ -275,12 +275,13 @@ export const portfolioContent: PortfolioContent = {
       ],
       thumbnail: "/images/portfolio/cipe-thumb.jpg",
       heroBanner: "/images/portfolio/cipe-hero.jpg",
+      solutionImage: "/images/portfolio/cipe-solution.jpg",
     },
     {
       slug: "odontologia-marlon-becerra",
       name: "Estrategia digital 360° para clínica odontológica",
       summary:
-        "Estrategia completa de comunicación para clínica odontológica referente en Bucaramanga — campaña 'Una lo cambia todo' en 4 plataformas simultáneas, hablador multicanal con QR individual por red social, y sistema de piezas que conectó el punto de venta físico con los canales digitales.",
+        "Estrategia completa de comunicación para clínica odontológica referente en Bucaramanga — campaña 'Una Sonrisa lo cambia todo' en 4 plataformas simultáneas, hablador multicanal con QR individual por red social, y sistema de piezas que conectó el punto de venta físico con los canales digitales.",
       sector: "Salud / Odontología",
       year: "2021",
       tags: ["Campaña", "Redes sociales", "Impreso", "Estrategia"],
@@ -306,6 +307,7 @@ export const portfolioContent: PortfolioContent = {
       ],
       thumbnail: "/images/portfolio/omb-thumb.jpg",
       heroBanner: "/images/portfolio/omb-hero.jpg",
+      solutionImage: "/images/portfolio/omb-solution.jpg",
     },
     {
       slug: "luz-yenny-mejia-psicoterapeuta",
@@ -333,6 +335,7 @@ export const portfolioContent: PortfolioContent = {
       ],
       thumbnail: "/images/portfolio/luz-yenny-thumb.jpg",
       heroBanner: "/images/portfolio/luz-yenny-hero.jpg",
+      solutionImage: "/images/portfolio/luz-yenny-solution.jpg",
     },
   ],
 };

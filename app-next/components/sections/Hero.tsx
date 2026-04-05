@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence, useScroll, useTransform, type MotionValue } from "framer-motion";
 
 // --- Variantes ---------------------------------------------------------------
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -15,17 +16,6 @@ const fadeUp: any = {
     transition: { duration: 0.65, ease: EASE, delay },
   }),
 };
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const cardIn = (delay = 0): any => ({
-  hidden: { opacity: 0, y: 12, scale: 0.97 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.7, ease: EASE, delay },
-  },
-});
 
 const cardCls =
   "rounded-2xl border border-white/[0.08] bg-[#0c1322]/95 " +
@@ -188,30 +178,47 @@ function TrustStrip() {
   );
 }
 
-// --- Panel visual — grilla 2 columnas ----------------------------------------
-//
-//  Col A (flex-3)         Col B (flex-2)
-//  ┌─────────────────┐    ┌──────────────┐
-//  │ PROYECTO DIGITAL│    │ SERVICIO     │
-//  │ Arquitectura…   │    │ Branding     │
-//  │ Branding   82%  │    │ Sistema…     │
-//  │ Web        64%  │    └──────────────┘
-//  │ Sistemas   74%  │
-//  │ [Web][Digital…] │
-//  │ Landing…        │
-//  └─────────────────┘
-//  ┌──────────────────────┐
-//  │ ENTREGA              │  ← debajo, ancho 60%
-//  │ Sistema visual empr… │
-//  │ Completado ──────────│
-//  └──────────────────────┘
+// --- Carrusel de proyectos ---------------------------------------------------
+
+const FEATURED_PROJECTS = [
+  {
+    label: "PROYECTO · BRANDING",
+    title: "Sistema de marca para empresa de tecnología IoT",
+    sector: "Tecnología / IoT",
+    tags: ["Branding", "Identidad visual", "Estrategia", "Web"],
+    img: "/images/portfolio/remti-thumb.jpg",
+    href: "/portafolio/remti-remote-iot/",
+  },
+  {
+    label: "PROYECTO · CAMPAÑA",
+    title: "Estrategia digital 360° para clínica odontológica",
+    sector: "Salud / Odontología",
+    tags: ["Campaña", "Redes sociales", "Impreso", "Estrategia"],
+    img: "/images/portfolio/omb-thumb.jpg",
+    href: "/portafolio/odontologia-marlon-becerra/",
+  },
+  {
+    label: "PROYECTO · BRANDING",
+    title: "Manual de identidad para agencia de marketing digital",
+    sector: "Marketing / Entretenimiento digital",
+    tags: ["Branding", "Manual de marca", "Identidad visual", "Marketing digital"],
+    img: "/images/portfolio/roza-agency-thumb.jpg",
+    href: "/portafolio/roza-agency/",
+  },
+];
 
 function HeroVisual() {
-  const bars = [
-    { label: "Branding", pct: 82, from: "#2563EB", to: "#60A5FA" },
-    { label: "Web",      pct: 64, from: "#1D4ED8", to: "#38BDF8" },
-    { label: "Sistemas", pct: 74, from: "#1E40AF", to: "#3B82F6" },
-  ];
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % FEATURED_PROJECTS.length);
+    }, 4500);
+    return () => clearInterval(id);
+  }, []);
+
+  const current = FEATURED_PROJECTS[active];
+  const next = FEATURED_PROJECTS[(active + 1) % FEATURED_PROJECTS.length];
 
   return (
     <motion.div
@@ -231,105 +238,107 @@ function HeroVisual() {
           bg-blue-600/10 blur-[90px]" />
       </div>
 
-      {/* Fila 1: CardMain + CardService en 2 columnas */}
-      <div className="flex gap-3 items-start">
-
-        {/* CardMain — 65% del ancho */}
+      {/* Cards con fade entre slides */}
+      <AnimatePresence mode="wait">
         <motion.div
-          variants={cardIn(0.5)}
-          initial="hidden"
-          animate="show"
-          className={`${cardCls} flex-[3] min-w-0 p-5`}
+          key={active}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.35, ease: EASE }}
+          className="flex gap-3 items-stretch"
         >
-          <p className="mb-1 font-mono text-[10px] font-semibold
-            tracking-[0.08em] uppercase text-blue-400">
-            Proyecto digital
-          </p>
-          <p className="mb-4 font-display text-[14px] font-semibold
-            leading-snug text-white/90">
-            Arquitectura de marca y experiencia web
-          </p>
-
-          {bars.map(({ label, pct, from, to }) => (
-            <div key={label} className="mb-3 last:mb-0">
-              <div className="mb-1 h-[3px] w-full overflow-hidden
-                rounded-full bg-white/[0.07]">
-                <div
-                  className="h-full rounded-full"
-                  style={{
-                    width: `${pct}%`,
-                    background: `linear-gradient(90deg, ${from}, ${to})`,
-                  }}
-                />
-              </div>
-              <div className="flex justify-between">
-                <span className="font-sans text-[11px] text-white/40">{label}</span>
-                <span className="font-sans text-[11px] text-white/40">{pct}%</span>
+          {/* Card principal — 65% */}
+          <a
+            href={current.href}
+            className={`${cardCls} flex-[3] min-w-0 overflow-hidden flex flex-col
+              group transition-shadow duration-200
+              hover:shadow-[0_24px_56px_rgba(0,0,0,0.7),0_0_0_1px_rgba(96,165,250,0.15)]`}
+          >
+            <div className="relative h-[158px] w-full shrink-0 overflow-hidden">
+              <Image
+                src={current.img}
+                alt={current.title}
+                fill
+                sizes="(min-width: 1024px) 260px"
+                className="object-cover transition-transform duration-500
+                  group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t
+                from-[#0c1322]/70 via-transparent to-transparent" />
+            </div>
+            <div className="flex flex-col flex-1 p-4">
+              <p className="mb-1.5 font-mono text-[10px] font-semibold
+                tracking-[0.08em] uppercase text-blue-400">
+                {current.label}
+              </p>
+              <p className="mb-1.5 font-display text-[13.5px] font-semibold
+                leading-snug text-white/90 flex-1">
+                {current.title}
+              </p>
+              <p className="mb-3 font-sans text-[11px] text-white/40">
+                {current.sector}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {current.tags.slice(0, 3).map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-blue-900/60
+                      bg-blue-950/50 px-2 py-0.5
+                      font-sans text-[10px] font-medium text-blue-300/80"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
-          ))}
+          </a>
 
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {["Web", "Digital Systems"].map((tag) => (
-              <span key={tag}
-                className="rounded-full border border-blue-900/60
-                  bg-blue-950/50 px-2.5 py-0.5
-                  font-sans text-[10px] font-medium text-blue-300/80">
-                {tag}
-              </span>
-            ))}
+          {/* Card secundaria — 35% */}
+          <div className={`${cardCls} flex-[2] min-w-0 overflow-hidden flex flex-col`}>
+            <div className="relative h-[110px] w-full shrink-0 overflow-hidden">
+              <Image
+                src={next.img}
+                alt={next.title}
+                fill
+                sizes="(min-width: 1024px) 170px"
+                className="object-cover opacity-70"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t
+                from-[#0c1322]/80 via-[#0c1322]/20 to-transparent" />
+            </div>
+            <div className="flex flex-col flex-1 p-3">
+              <p className="mb-1 font-mono text-[9px] font-semibold
+                tracking-[0.08em] uppercase text-blue-400/80">
+                Siguiente
+              </p>
+              <p className="mb-1.5 font-display text-[13px] font-semibold
+                leading-snug text-white/80 flex-1">
+                {next.tags[0]}
+              </p>
+              <p className="font-sans text-[10px] text-white/35 leading-snug">
+                {next.sector}
+              </p>
+            </div>
           </div>
-          <p className="mt-2 font-sans text-[11px] leading-snug text-white/35">
-            Landing con flujo de cotización integrado.
-          </p>
         </motion.div>
+      </AnimatePresence>
 
-        {/* CardService — 35% del ancho, alineada arriba */}
-        <motion.div
-          variants={cardIn(0.65)}
-          initial="hidden"
-          animate="show"
-          className={`${cardCls} flex-[2] min-w-0 p-4`}
-        >
-          <p className="mb-0.5 font-mono text-[10px] font-semibold
-            tracking-[0.08em] uppercase text-blue-400">
-            Servicio
-          </p>
-          <p className="mb-1.5 font-display text-[15px] font-semibold
-            leading-snug text-white/90">
-            Branding
-          </p>
-          <p className="font-sans text-[12px] leading-relaxed text-white/40">
-            Sistema visual multicanal con lineamientos claros.
-          </p>
-        </motion.div>
+      {/* Dots de navegación */}
+      <div className="flex items-center gap-2 pl-0.5">
+        {FEATURED_PROJECTS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActive(i)}
+            aria-label={`Proyecto ${i + 1}`}
+            className={`h-[5px] rounded-full transition-all duration-300 ${
+              i === active
+                ? "w-5 bg-blue-400"
+                : "w-[5px] bg-white/20 hover:bg-white/40"
+            }`}
+          />
+        ))}
       </div>
-
-      {/* Fila 2: CardDelivered — debajo, ancho parcial */}
-      <motion.div
-        variants={cardIn(0.8)}
-        initial="hidden"
-        animate="show"
-        className={`${cardCls} self-start px-5 py-4`}
-        style={{ width: "60%" }}
-      >
-        <p className="mb-0.5 font-mono text-[10px] font-semibold
-          tracking-[0.08em] uppercase text-blue-400">
-          Entrega
-        </p>
-        <p className="mb-2.5 font-display text-[13px] font-semibold
-          leading-snug text-white/90">
-          Sistema visual empresa industrial
-        </p>
-        <div className="h-[3px] w-full overflow-hidden
-          rounded-full bg-white/[0.07]">
-          <div className="h-full w-full rounded-full
-            bg-gradient-to-r from-blue-600 to-blue-400" />
-        </div>
-        <p className="mt-1.5 font-sans text-[10px] font-medium text-green-400/80">
-          Completado · Entregado
-        </p>
-      </motion.div>
     </motion.div>
   );
 }
