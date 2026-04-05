@@ -41,6 +41,9 @@ const config: Config = {
       fontFamily: {
         heading: ["var(--font-sora)", "sans-serif"],
         body: ["var(--font-inter)", "sans-serif"],
+        display: ["var(--font-sora)", "sans-serif"],
+        sans: ["var(--font-inter)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
       },
       letterSpacing: {
         tightest: "-0.03em",

@@ -145,6 +145,23 @@ html.is-embedded #cotizador-app > header h1 {
   }
 }
 
+/* ─── Hero floating card animations ─────────────────────────────────────── */
+@keyframes floatA {
+  0%, 100% { transform: translateY(0)    rotate(-1deg); }
+  50%       { transform: translateY(-9px) rotate(-1deg); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0)   rotate(1.5deg); }
+  50%       { transform: translateY(-6px) rotate(1.5deg); }
+}
+@keyframes floatC {
+  0%, 100% { transform: translateY(0)    rotate(-0.5deg); }
+  50%       { transform: translateY(-11px) rotate(-0.5deg); }
+}
+.animate-float-a { animation: floatA 7s ease-in-out infinite; }
+.animate-float-b { animation: floatB 5s ease-in-out infinite; }
+.animate-float-c { animation: floatC 9s ease-in-out infinite; }
+
 /* ─── Dark mode ─ jerarquía de texto global ───────────────────────────────
    Los colores brand.primary/neutral/accent en Tailwind son valores estáticos.
    Estos overrides los elevan dinámicamente bajo .dark para cubrir TODOS los

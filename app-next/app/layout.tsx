@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { siteContent } from "@/lib/content/siteContent";
@@ -18,6 +18,13 @@ const sora = Plus_Jakarta_Sans({
   variable: "--font-sora",
   display: "swap",
   weight: ["400", "500", "600", "700"],
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  weight: ["400", "500", "600"],
 });
 
 const BASE_URL = "https://comunicaciones2-star.github.io/minifolio";
@@ -90,7 +97,7 @@ export default function RootLayout({
           />
         ) : null}
       </head>
-      <body className={`${inter.variable} ${sora.variable}`}>
+      <body className={`${inter.variable} ${sora.variable} ${mono.variable}`}>
         <div id="app-shell" className="min-h-screen bg-[var(--base)] text-[var(--primary)] transition-colors duration-300">
           <Header />
           {children}

@@ -1,4 +1,4 @@
-import { HeroSection } from "@/components/sections/HeroSection";
+import Hero from "@/components/sections/Hero";
 import { ProblemSection } from "@/components/sections/ProblemSection";
 import { ValuePropositionSection } from "@/components/sections/ValuePropositionSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
@@ -12,7 +12,7 @@ import { FinalCTASection } from "@/components/sections/FinalCTASection";
 export function HomePageSections() {
   return (
     <>
-      <HeroSection />
+      <Hero />
       <ProblemSection />
       <ValuePropositionSection />
       <ServicesSection />
