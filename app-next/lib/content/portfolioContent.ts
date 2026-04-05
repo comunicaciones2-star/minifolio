@@ -247,6 +247,7 @@ export const portfolioContent: PortfolioContent = {
       ],
       thumbnail: "/images/portfolio/roza-agency-thumb.jpg",
       heroBanner: "/images/portfolio/roza-agency-hero.jpg",
+      solutionImage: "/images/portfolio/roza-agency-solution.jpg",
     },
     {
       slug: "cipe-international",
