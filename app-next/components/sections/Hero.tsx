@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 
 // --- Variantes ---------------------------------------------------------------
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -335,7 +335,7 @@ function HeroVisual() {
 function HeroBackground({
   scrollY,
 }: {
-  scrollY: ReturnType<typeof useTransform>;
+  scrollY: MotionValue<number>;
 }) {
   return (
     <>
