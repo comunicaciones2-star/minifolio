@@ -94,6 +94,18 @@ export default async function CaseStudyPage({ params }: Props) {
                 <p className="mt-4 text-body leading-relaxed text-brand-neutral">{project.solution}</p>
               </Card>
 
+              {project.solutionImage && (
+                <div className="relative h-64 w-full overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800 md:h-80">
+                  <Image
+                    src={assetPath(project.solutionImage)}
+                    alt={`${project.name} — detalle de la solución`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 800px"
+                  />
+                </div>
+              )}
+
               <Card className="p-6 md:p-8">
                 <h2 className="text-h3 font-heading font-semibold text-brand-primary">Resultados</h2>
                 <ul className="mt-4 space-y-3">

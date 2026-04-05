@@ -29,6 +29,8 @@ export type PortfolioProject = {
   thumbnail: string;
   /** Imagen hero en el case study — 1200×675 px */
   heroBanner: string;
+  /** Imagen secundaria debajo de "La solución" — 800×500 px (opcional) */
+  solutionImage?: string;
 };
 
 export type PortfolioContent = {
@@ -74,6 +76,7 @@ export const portfolioContent: PortfolioContent = {
       ],
       thumbnail: "/images/portfolio/felix-jose-thumb.jpg",
       heroBanner: "/images/portfolio/felix-jose-hero.jpg",
+      solutionImage: "/images/portfolio/felix-jose-solution.jpg",
     },
     {
       slug: "optica-gold-vision",
