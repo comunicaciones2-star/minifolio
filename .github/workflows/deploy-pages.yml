@@ -37,7 +37,7 @@ jobs:
         working-directory: app-next
         run: npm run build
         env:
-          NEXT_PUBLIC_BASE_PATH: /minifolio
+          NEXT_PUBLIC_BASE_PATH: /jhon-fragozo-portfolio
           NEXT_PUBLIC_DASHBOARD_PIN: ${{ secrets.DASHBOARD_PIN }}
           NEXT_PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
           NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.WEB3FORMS_KEY }}
