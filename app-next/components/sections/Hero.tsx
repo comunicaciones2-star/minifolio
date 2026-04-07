@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { assetPath } from "@/lib/utils/assetPath";
 
 // --- Variantes ---------------------------------------------------------------
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -257,7 +258,7 @@ function HeroVisual() {
           >
             <div className="relative h-[158px] w-full shrink-0 overflow-hidden">
               <Image
-                src={current.img}
+                src={assetPath(current.img)}
                 alt={current.title}
                 fill
                 sizes="(min-width: 1024px) 260px"
@@ -298,7 +299,7 @@ function HeroVisual() {
           <div className={`${cardCls} flex-[2] min-w-0 overflow-hidden flex flex-col`}>
             <div className="relative h-[110px] w-full shrink-0 overflow-hidden">
               <Image
-                src={next.img}
+                src={assetPath(next.img)}
                 alt={next.title}
                 fill
                 sizes="(min-width: 1024px) 170px"
